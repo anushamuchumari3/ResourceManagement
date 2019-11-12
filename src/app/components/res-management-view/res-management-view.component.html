@@ -1,0 +1,32 @@
+<form>
+    <h3 class=" panel  panel-heading" style="text-align: center;">List of Resources</h3>
+    <div class="container-fluid">
+      <table class="table table-striped">
+        <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Position</th>
+      <th scope="col">Doj</th>
+      <th scope="col">Location</th>
+      <th scope="col">Primary Skill</th>
+      <th scope="col">Mob</th>
+      <th scope="col">KT Plan</th>
+      <th scope="col">Availablity</th>
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody class="table table-striped">
+        <tr  *ngFor="let res of resourceLists; let i= index"  scope="row">
+            <td >{{res.name}}</td>
+            <td >{{res.position}}</td>
+            <td >{{res.doj}}</td>
+            <td >{{res.location}}</td>
+            <td >{{res.primeSkill}}</td>
+            <td >{{res.mob}}</td>
+            <td >{{res.ktPlan }}</td>
+            <td >{{res.availablity}}</td> 
+            <td></td> 
+          </tbody>
+      </table>
+     </div> 
+</form>
