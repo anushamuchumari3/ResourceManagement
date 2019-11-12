@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Designation</th>
+            <th>Role</th>
+            <th>Experience (In Yrs)</th>
+            <th>Location</th>
+            <th>Contact</th>
+            <th>Action</th>
+            
+          </tr>
+        </thead>
+        <tbody *ngFor="let data of jdList">
+          <tr>
+            <td>{{data.firstName}}</td>
+            <td>{{data.lasttName}}</td>
+            <td>{{data.email}}</td>
+            <td>{{data.designation}}</td>
+            <td>{{data.role}}</td>
+            <td>{{data.experience}}</td>
+            <td>{{data.location}}</td>
+            <td>{{data.contact}}</td>
+            <td><i class="fa fa-pencil icon_edit" aria-hidden="true"  ></i> &nbsp; <i class="fa fa-trash icon_delete" aria-hidden="true"></i></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

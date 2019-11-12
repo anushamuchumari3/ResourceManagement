@@ -1,0 +1,12 @@
+<nav class="navbar navbar-inverse nav_bg">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">AirBus</a>
+    </div>
+    <ul class="nav navbar-nav"  *ngFor="let menu of menuList">
+      <li><a routerLink={{menu.link}}>{{menu.name}}</a></li>
+    </ul>
+  </div>
+</nav>
+
+

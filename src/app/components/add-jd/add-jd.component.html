@@ -1,0 +1,74 @@
+  <div class="container-fluid">
+      <div class="row header">
+          <div class="col-md-6 col-md-offset-4 ">
+            <div class="form-group">
+              <h3>Add new Job Description</h3>
+            </div>
+          </div>
+          </div>
+    <form [formGroup]="JDAdditionForm">
+      <div class="row">
+          <div class="col-md-3 ">
+            <div class="form-group">
+              <label for="usr">Position</label>
+              <input type="text" class="form-control" id="usr" placeholder="software engineer" formControlName="position">
+            </div>
+          </div>
+  
+          <div class="col-md-3 col-md-offset-1">
+            <div class="form-group">
+              <label for="pwd">No. Persons</label>
+              <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="persons">
+            </div>
+          </div>
+          <div class="col-md-3 col-md-offset-1">
+              <div class="form-group">
+                <label for="pwd">category</label>
+                <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="category">
+              </div>
+          </div>
+          
+      </div>
+      <div class="row">
+
+          <div class="col-md-3 ">
+              <div class="form-group">
+                <label for="pwd">Location</label>
+                <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="location">
+              </div>
+          </div>
+          <div class="col-md-3 col-md-offset-1 ">
+              <div class="form-group">
+                <label for="pwd">Boarding Time</label>
+                <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="time">
+              </div>
+          </div>
+          <div class="col-md-3 col-md-offset-1">
+              <div class="form-group">
+                <label for="pwd">Experience</label>
+                <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="experience">
+              </div>
+          </div>
+
+
+      </div>
+      <div class="row">
+          <div class="col-md-6 "> 
+              <div class="form-group">
+                  <label for="comment">JD Description</label>
+                  <textarea class="form-control" rows="10" id="comment"></textarea>
+                </div>
+          </div>
+        </div>
+
+      <div class="row">
+        <div class="col-md-6 "> 
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea class="form-control" rows="2" id="comment"></textarea>
+              </div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Add JD</button>
+    </form>
+  </div>
