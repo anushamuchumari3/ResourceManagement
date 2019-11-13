@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {ResourceDetailListService} from '../resource-detail-list.service'
-import {PageEvent} from '@angular/material/paginator';
-import {Sort} from '@angular/material/sort';
+import {MatPaginator, MatTableDataSource} from '@angular/material';
+import {Sort, MatSort} from '@angular/material/sort';
+import {DataSource} from '@angular/cdk/collections';
+import {Observable} from 'rxjs';
 
 export interface Resource {
   name: string;
@@ -12,8 +14,8 @@ export interface Resource {
   mob: string;
   ktPlan: string;
   availablity: boolean;
-}
-// declare var $: any;
+} 
+declare var $: any;
 @Component({
   selector: 'app-res-management-view',
   templateUrl: './res-management-view.component.html',
@@ -21,37 +23,45 @@ export interface Resource {
 })
 export class ResManagementViewComponent implements OnInit {
 
-  // @ViewChild('dataTable') table: any;
-  // dataTable: any;
+  dataSource = new ResourceDataSource(this._resourceService);
 
   public resourceLists = [];
-  sortedData: any[];
-  constructor(resourceDetail: ResourceDetailListService) {
-    this.resourceLists = resourceDetail.getResources();
-       // MatPaginator Inputs
-  //  length = this.resourceLists.length;
-  //   this.sortedData = this.resourceLists.slice();
+  public resource;
+  sortedData: Sort;
+  matDataSource = new MatTableDataSource<any>();
+  constructor(private _resourceService: ResourceDetailListService) {
+    this.resourceLists =this._resourceService.resourceListJson;   
    }
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) matSort: MatSort;
   ngOnInit() {
-    // this.dataTable = $(this.table.nativeElement);
-    // this.dataTable.DataTable();
+  }
+  employeeData() {
+    this._resourceService.getResources().subscribe(
+      data =>{this.resource = data;},
+      err=> {console.error(err);},
+      () => {console.log("Data has loaded properly");}
+    );
   }
 
-   // MatPaginator Inputs
-   //length = this.resourceLists.length;
-   pageSize = 0;
-   pageSizeOptions: number[] = [2, 4, 5, 10];
- 
-   // MatPaginator Output
-   pageEvent: PageEvent;
- 
-   setPageSizeOptions(setPageSizeOptionsInput: string) {
-     this.pageSizeOptions = setPageSizeOptionsInput.split(',').map(str => +str);
-   }
+  /**
+   * Set the paginator after the view init since this component will
+   * be able to query its view for the initialized paginator.
+   */
+  ngAfterViewInit() {
+    // this.matDataSource.sortData = this.matDataSource;
+    this.matDataSource.paginator = this.paginator;
+  }
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
+    this.matDataSource.filter = filterValue;
+  }
+   
 
    sortData(sort: Sort) {
-    const data = this.resourceLists.slice();
+    const data = this.resource.slice();
     if (!sort.active || sort.direction === '') {
       this.sortedData = data;
       return;
@@ -70,6 +80,9 @@ export class ResManagementViewComponent implements OnInit {
     });
   }
 
+  showModal():void {
+    $("#myModal").modal('show');
+  }
   showResource(index: number){
 
   }
@@ -84,4 +97,20 @@ export class ResManagementViewComponent implements OnInit {
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
+}
+
+export class ResourceDataSource extends DataSource<any> {
+  
+  constructor(private _resourceService: ResourceDetailListService) {
+    super();
+    this._resourceService.getResources();
+  }
+
+  // Connect function called by the table to retrieve one stream containing the data to render. 
+  connect(): Observable<any[]> {
+       
+    return this._resourceService.getResources();
+  }
+
+  disconnect() {}
 }

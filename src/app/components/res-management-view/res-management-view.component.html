@@ -1,7 +1,70 @@
+<div class="container=fluid mat-elevation-z8">
+  <div class="example-filter" style="text-align: right">
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+    </mat-form-field>
+  </div>
+  <h3 class=" panel  panel-heading" style="text-align: center;">List of Resources</h3>
+<mat-table #table matSort>
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Name </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.name}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="position">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Position </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.position}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="doj">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Doj </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.doj}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="location">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Location </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.location}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="primeSkill">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Primary Skill </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.primeSkill}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="mob">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Mob </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.mob}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="ktPlan">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> KT Plan </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.ktPlan}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="availablity">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Availablity </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.availablity}} </mat-cell>
+  </ng-container>
+  
+  <ng-container>
+      <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Actions </mat-header-cell>
+      <mat-cell>
+          <span><button mat-mini-fab color="grey"  data-toggle="modal" data-target="#modalTarget" (click)="$('#myModal').modal(show);">view</button></span>
+          <span><button mat-mini-fab color="primary" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">edit</button></span>
+          <span><button mat-mini-fab color="warn" (click)="removeResource(i)">delete</button></span>
+      </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>  
+
+
+
+
 <form>
-    <h3 class=" panel  panel-heading" style="text-align: center;">List of Resources</h3>
     <div class="container-fluid">
-      <table class="table table-striped" matSort (matSortChange)="sortData($event)">
+      <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">Name</th>
@@ -26,25 +89,24 @@
             <td >{{res.ktPlan }}</td>
             <td >{{res.availablity}}</td> 
             <td style="text-align: center;">
-                <span><button mat-mini-fab color="grey"  data-toggle="modal" data-target="#modalTarget" (click)="$('#myModal').modal(show);">view</button></span>
-                <span><button mat-mini-fab color="primary" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">edit</button></span>
-                <span><button mat-mini-fab color="warn" (click)="removeResource(i)">delete</button></span>
-                <!-- <span><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></span>
-                <span>&nbsp; &nbsp;</span>
-                <span><mat-icon class="glyphicon glyphicon-trash"></mat-icon></span> -->
+                <span><button mat-mini-fab color="grey"  data-toggle="modal" data-target="#modalTarget" (click)="showModal();">view</button></span>
+                <span><button mat-mini-fab color="primary" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span>
+                <span><button mat-mini-fab color="warn" (click)="removeResource(i)"><mat-icon class="glyphicon glyphicon-trash"></mat-icon></button></span>
             </td> 
           </tbody>
       </table>
-      <!-- <mat-paginator [pageSizeOptions]="[1, 2, 4, 5, 10]" ></mat-paginator> -->
-      <!-- <mat-paginator [length]="length"
-              [pageSize]="pageSize"
-              [pageSizeOptions]="pageSizeOptions"
-              (page)="pageEvent = $event">
-      </mat-paginator> -->
      </div> 
 </form>
 
-<div class="modal fade" id="modalTarget" aria-hidden="true">
+  <div class="mat-paginator-tab">
+    <mat-paginator
+    [pageSize]="2"
+    [pageSizeOptions]="[2, 4, 8, 10]">
+    </mat-paginator>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" aria-hidden="true">
    <div class="modal-header">
   <h4 class="modal-title">Modal Title</h4>
   <button type="button" class="close" aria-label="Close"

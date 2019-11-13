@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResourceDetailListService {
 
-  public resourceListJson = [
+  public resourceListJson: any = [
     {
       name: 'Tiger Nixon',
       position: 'Team Lead',
@@ -61,7 +62,8 @@ export class ResourceDetailListService {
 
   constructor() { }
 
-  getResources() {
+  getResources(): Observable<any[]> {
+    console.log("resource........... : "+this.resourceListJson);
     return this.resourceListJson;
   }
 
