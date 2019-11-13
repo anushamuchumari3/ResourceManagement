@@ -8,7 +8,7 @@ export class ResourceDetailListService {
   public resourceListJson = [
     {
       name: 'Tiger Nixon',
-      position: 'Manager',
+      position: 'Team Lead',
       doj: '2011/07/25',
       location: 'Bangalore',
       primeSkill: 'Java',
@@ -18,8 +18,8 @@ export class ResourceDetailListService {
     },
     {
       name: 'Garrett Winters',
-      position: 'Developer',
-      doj: '2011/07/25',
+      position: 'Senior Developer',
+      doj: '2010/05/08',
       location: 'Chennai',
       primeSkill: 'Java',
       mob: '8501235556',
@@ -28,8 +28,8 @@ export class ResourceDetailListService {
     },
     {
       name: 'Ashton Cox',
-      position: 'Accountant',
-      doj: '2011/07/25',
+      position: 'Developer',
+      doj: '2018/12/19',
       location: 'Pune',
       primeSkill: 'Java',
       mob: '8501230996',
@@ -38,18 +38,18 @@ export class ResourceDetailListService {
     },
     {
       name: 'Cedric Kelly',
-      position: 'HR',
-      doj: '2011/07/25',
+      position: 'Software Engineer',
+      doj: '2016/07/15',
       location: 'Noida',
-      primeSkill: 'Java',
+      primeSkill: 'PHP',
       mob: '8501230776',
       ktPlan: 'Complete',
       availablity: 'Yes'
     },
     {
       name: 'Airi Satou',
-      position: 'Testing Engineer',
-      doj: '2011/07/25',
+      position: 'Developer',
+      doj: '2013/02/21',
       location: 'Bangalore',
       primeSkill: '.net',
       mob: '8544230456',
@@ -63,5 +63,12 @@ export class ResourceDetailListService {
 
   getResources() {
     return this.resourceListJson;
+  }
+
+  data: Object;
+  getResource(id: number){
+      this.data = this.resourceListJson;
+    console.log("resource........... : "+this.getResources[1]);
+    return this.getResources[id];
   }
 }

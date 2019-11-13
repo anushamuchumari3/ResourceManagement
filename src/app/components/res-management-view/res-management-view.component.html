@@ -1,21 +1,21 @@
 <form>
     <h3 class=" panel  panel-heading" style="text-align: center;">List of Resources</h3>
     <div class="container-fluid">
-      <table class="table table-striped">
-        <thead>
-    <tr>
-      <th scope="col">Name</th>
-      <th scope="col">Position</th>
-      <th scope="col">Doj</th>
-      <th scope="col">Location</th>
-      <th scope="col">Primary Skill</th>
-      <th scope="col">Mob</th>
-      <th scope="col">KT Plan</th>
-      <th scope="col">Availablity</th>
-      <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody class="table table-striped">
+      <table class="table table-striped" matSort (matSortChange)="sortData($event)">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Doj</th>
+          <th scope="col">Location</th>
+          <th scope="col">Primary Skill</th>
+          <th scope="col">Mob</th>
+          <th scope="col">KT Plan</th>
+          <th scope="col">Availablity</th>
+          <th scope="col" style="text-align: center;">Action</th>
+        </tr>
+      </thead>
+      <tbody class="table table-striped">
         <tr  *ngFor="let res of resourceLists; let i= index"  scope="row">
             <td >{{res.name}}</td>
             <td >{{res.position}}</td>
@@ -25,8 +25,38 @@
             <td >{{res.mob}}</td>
             <td >{{res.ktPlan }}</td>
             <td >{{res.availablity}}</td> 
-            <td></td> 
+            <td style="text-align: center;">
+                <span><button mat-mini-fab color="grey"  data-toggle="modal" data-target="#modalTarget" (click)="$('#myModal').modal(show);">view</button></span>
+                <span><button mat-mini-fab color="primary" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">edit</button></span>
+                <span><button mat-mini-fab color="warn" (click)="removeResource(i)">delete</button></span>
+                <!-- <span><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></span>
+                <span>&nbsp; &nbsp;</span>
+                <span><mat-icon class="glyphicon glyphicon-trash"></mat-icon></span> -->
+            </td> 
           </tbody>
       </table>
+      <!-- <mat-paginator [pageSizeOptions]="[1, 2, 4, 5, 10]" ></mat-paginator> -->
+      <!-- <mat-paginator [length]="length"
+              [pageSize]="pageSize"
+              [pageSizeOptions]="pageSizeOptions"
+              (page)="pageEvent = $event">
+      </mat-paginator> -->
      </div> 
 </form>
+
+<div class="modal fade" id="modalTarget" aria-hidden="true">
+   <div class="modal-header">
+  <h4 class="modal-title">Modal Title</h4>
+  <button type="button" class="close" aria-label="Close"
+    (click)="activeModal.dismiss('Cross click')">
+  </button>
+  </div>
+  <div class="modal-body">
+    <p>My modal content</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="activeModal.dismiss('Close clicked')">
+      Close Clicked
+    </button>
+  </div>
+<div>
