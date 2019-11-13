@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { descriptions } from 'src/app/mock_data/descriptions';
+import { JDAdditionService } from 'src/app/services/jdaddition.service';
 
 @Component({
   selector: 'app-list-jd',
@@ -6,25 +8,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./list-jd.component.css']
 })
 export class ListJDComponent implements OnInit {
-  //theadList:any;
-  jdList:any;
+  jobsList:any;
   
-  constructor() { }
 
-  ngOnInit() {
-  
-    this.jdList = [
-      {
-        firstName:"john",
-        lasttName:"Ally",
-        email:"john.ally@soprasteria.com",
-        designation:"Senior Software engineer",
-        role:"Full stack Developer",
-        experience:"6",
-        location:"noida site 3",
-        contact:"8965656456"
-      }
-    ];
+  constructor(private jdAdditionService:JDAdditionService) { 
+    this.jobsList =  descriptions;
   }
 
+  ngOnInit() { 
+    this. getJobDescs();
+   }
+
+  getJobDescs(): void {
+    this.jobsList = this.jdAdditionService.getJobs();
+  }
+
+
+  description: descriptions;
+
+onSelect(selectedJD: descriptions): void {
+  this.description = selectedJD;
+  console.log("this.description"+this.description.category);
+
+}
 }

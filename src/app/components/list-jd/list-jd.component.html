@@ -2,29 +2,30 @@
     <table class="table table-striped">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Email</th>
-            <th>Designation</th>
-            <th>Role</th>
-            <th>Experience (In Yrs)</th>
+            <th>Position</th>
+            <th>No. Positions</th>
+            <th>Category</th>
             <th>Location</th>
-            <th>Contact</th>
-            <th>Action</th>
-            
+            <th>Boarding Time</th>
+            <th>Experience (In Yrs)</th>
+            <th>Skill</th>
+            <th>Description</th>
+            <th>Comment</th>
+            <th>Actions</th>
           </tr>
         </thead>
-        <tbody *ngFor="let data of jdList">
+        <tbody *ngFor="let jdList of jobsList">
           <tr>
-            <td>{{data.firstName}}</td>
-            <td>{{data.lasttName}}</td>
-            <td>{{data.email}}</td>
-            <td>{{data.designation}}</td>
-            <td>{{data.role}}</td>
-            <td>{{data.experience}}</td>
-            <td>{{data.location}}</td>
-            <td>{{data.contact}}</td>
-            <td><i class="fa fa-pencil icon_edit" aria-hidden="true"  ></i> &nbsp; <i class="fa fa-trash icon_delete" aria-hidden="true"></i></td>
+            <td>{{jdList.position | uppercase}}</td>
+            <td>{{jdList.noPositions}}</td>
+            <td>{{jdList.category}}</td>
+            <td>{{jdList.location}}</td>
+            <td>{{jdList.boardingTime}}</td>
+            <td>{{jdList.experience}}</td>
+            <td>{{jdList.skill}}</td>
+            <td>{{jdList.description}}</td>
+            <td>{{jdList.comment}}</td>
+            <td><i class="fa fa-pencil icon_edit" aria-hidden="true"  (click)="onSelect(jdList)"></i> &nbsp; <i class="fa fa-trash icon_delete" aria-hidden="true" (click)="onSelect(jdList)"></i></td>
           </tr>
         </tbody>
       </table>

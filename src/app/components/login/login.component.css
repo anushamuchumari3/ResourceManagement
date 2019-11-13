@@ -4,5 +4,14 @@
 }
 .login_btn{
     position: relative;
-    margin-left: 18%;
+    margin-left: 9%;
+}
+.login_head{
+    margin: 3% 27%;
+    position: relative;
+}
+.login_header{
+    text-align: center;
+    font-family: cursive;
+    color: blueviolet;
 }

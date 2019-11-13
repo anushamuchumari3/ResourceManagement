@@ -1,5 +1,16 @@
 .header{
-    background-color: lightgrey;
+    /* background-color: lightgrey; */
     margin-top: -1%;
-    margin-bottom: 4%;
+    margin-bottom: 1%;
+}
+.heading{
+    font-family: cursive;
+    color: blueviolet;
+    text-align: center;
+}
+.successmsg{
+    text-align: center;
+    color: green;
+    font-size: 23px;
+    font-family: cursive;
 }

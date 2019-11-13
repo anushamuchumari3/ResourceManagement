@@ -1,42 +1,68 @@
-  <div class="container-fluid">
+ 
+ 
+ <div class="container-fluid">
+
+    <div class="row successmsg" *ngIf="successFlag">
+        <div class="col-md-12 ">
+          <h3 class=""> Successfully added Job Description!! </h3>
+         </div>
+   </div>
+
       <div class="row header">
-          <div class="col-md-6 col-md-offset-4 ">
+          <div class="col-md-12  ">
             <div class="form-group">
-              <h3>Add new Job Description</h3>
+              <h3 class="heading">Add new Job Description</h3>
             </div>
           </div>
           </div>
-    <form [formGroup]="JDAdditionForm">
+    <form [formGroup]="JDAdditionForm" (ngSubmit) = "addJobDescs()">
       <div class="row">
           <div class="col-md-3 ">
             <div class="form-group">
               <label for="usr">Position</label>
-              <input type="text" class="form-control" id="usr" placeholder="software engineer" formControlName="position">
+              <input type="text" class="form-control" id="usr" placeholder="software engineer" formControlName="jdPosition">
             </div>
           </div>
   
           <div class="col-md-3 col-md-offset-1">
             <div class="form-group">
-              <label for="pwd">No. Persons</label>
-              <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="persons">
+              <label for="positions">No. Positions</label>
+              <select class="form-control" id="positions">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+              </select>
             </div>
           </div>
+
           <div class="col-md-3 col-md-offset-1">
               <div class="form-group">
-                <label for="pwd">category</label>
-                <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="category">
-              </div>
+                   <label for="category">Category</label>
+                    <select class="form-control" id="category" formControlName="category">
+                      <option>IT</option>
+                      <option>SAP</option>
+                      <option>Testing</option>
+                      <option>Engineering</option>
+                    </select>
+                 </div>
           </div>
           
       </div>
       <div class="row">
 
-          <div class="col-md-3 ">
+          <div class="col-md-3">
               <div class="form-group">
-                <label for="pwd">Location</label>
-                <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="location">
-              </div>
+                   <label for="location">Location</label>
+                    <select class="form-control" id="location" formControlName="location">
+                      <option>Noida Site1</option>
+                      <option>Noida Site3</option>
+                      <option>Banglore</option>
+                    </select>
+                 </div>
           </div>
+
+
           <div class="col-md-3 col-md-offset-1 ">
               <div class="form-group">
                 <label for="pwd">Boarding Time</label>
@@ -44,10 +70,14 @@
               </div>
           </div>
           <div class="col-md-3 col-md-offset-1">
-              <div class="form-group">
-                <label for="pwd">Experience</label>
-                <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="experience">
-              </div>
+                <div class="form-group">
+                    <label for="experience">Experience</label>
+                     <select class="form-control" id="experience" formControlName="experience">
+                       <option>1-2</option>
+                       <option>2-3</option>
+                       <option>3-4</option>
+                     </select>
+                  </div>
           </div>
 
 
@@ -55,8 +85,16 @@
       <div class="row">
           <div class="col-md-6 "> 
               <div class="form-group">
+                  <label for="comment">Skill</label>
+                  <textarea class="form-control" rows="1" id="comment" formControlName="skill"></textarea>
+                </div>
+          </div>
+        </div>
+      <div class="row">
+          <div class="col-md-6 "> 
+              <div class="form-group">
                   <label for="comment">JD Description</label>
-                  <textarea class="form-control" rows="10" id="comment"></textarea>
+                  <textarea class="form-control" rows="10" id="comment" formControlName="description"></textarea>
                 </div>
           </div>
         </div>
@@ -65,10 +103,10 @@
         <div class="col-md-6 "> 
             <div class="form-group">
                 <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="2" id="comment"></textarea>
+                <textarea class="form-control" rows="2" id="comment" formControlName="comment"></textarea>
               </div>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Add JD</button>
+      <button type="submit"  class="btn btn-primary" [disabled]="!JDAdditionForm.valid">Add JD</button>
     </form>
   </div>
