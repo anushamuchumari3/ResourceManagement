@@ -16,8 +16,12 @@ export class JDAdditionService {
     return this.jobs.push(jobDesc);
   }
 
-  deleteJob(jobDesc : descriptions){
-    return this.jobs.pop();
+  deleteJob(index:number){
+    if(index === 0 ){
+     return this.jobs.splice(0,1);
+    }else{
+    return this.jobs.splice(index,index);
+    }
   }
 
 }

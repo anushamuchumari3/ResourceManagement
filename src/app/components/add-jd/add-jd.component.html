@@ -2,6 +2,7 @@
  
  <div class="container-fluid">
 
+  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
     <div class="row successmsg" *ngIf="successFlag">
         <div class="col-md-12 ">
           <h3 class=""> Successfully added Job Description!! </h3>
@@ -19,19 +20,16 @@
       <div class="row">
           <div class="col-md-3 ">
             <div class="form-group">
-              <label for="usr">Position</label>
-              <input type="text" class="form-control" id="usr" placeholder="software engineer" formControlName="jdPosition">
+              <label for="usr">Position*</label>
+              <input type="text" class="form-control"  placeholder="software engineer" formControlName="jdPosition">
             </div>
           </div>
-  
+          
           <div class="col-md-3 col-md-offset-1">
             <div class="form-group">
               <label for="positions">No. Positions</label>
-              <select class="form-control" id="positions">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
+              <select class="form-control" id="positions" (click)="positionOptio()">
+                <option>{{pos}}</option>
               </select>
             </div>
           </div>
@@ -53,7 +51,7 @@
 
           <div class="col-md-3">
               <div class="form-group">
-                   <label for="location">Location</label>
+                   <label for="location">Location*</label>
                     <select class="form-control" id="location" formControlName="location">
                       <option>Noida Site1</option>
                       <option>Noida Site3</option>
@@ -66,7 +64,7 @@
           <div class="col-md-3 col-md-offset-1 ">
               <div class="form-group">
                 <label for="pwd">Boarding Time</label>
-                <input type="password" class="form-control" id="pwd" placeholder="3" formControlName="time">
+                <input type="date" class="form-control" id="pwd" placeholder="3" formControlName="time">
               </div>
           </div>
           <div class="col-md-3 col-md-offset-1">
@@ -85,7 +83,7 @@
       <div class="row">
           <div class="col-md-6 "> 
               <div class="form-group">
-                  <label for="comment">Skill</label>
+                  <label for="comment">Skill*</label>
                   <textarea class="form-control" rows="1" id="comment" formControlName="skill"></textarea>
                 </div>
           </div>
@@ -93,7 +91,7 @@
       <div class="row">
           <div class="col-md-6 "> 
               <div class="form-group">
-                  <label for="comment">JD Description</label>
+                  <label for="comment">JD Description*</label>
                   <textarea class="form-control" rows="10" id="comment" formControlName="description"></textarea>
                 </div>
           </div>
@@ -110,3 +108,6 @@
       <button type="submit"  class="btn btn-primary" [disabled]="!JDAdditionForm.valid">Add JD</button>
     </form>
   </div>
+
+ 
+  

@@ -26,9 +26,20 @@ export class ListJDComponent implements OnInit {
 
   description: descriptions;
 
-onSelect(selectedJD: descriptions): void {
-  this.description = selectedJD;
-  console.log("this.description"+this.description.category);
+  onSelect(selectedJD: descriptions): void {
+    this.description = selectedJD;
+    console.log("this.description"+this.description.category);
 
-}
+  }
+  deleteJds(index:any){
+
+    console.log("inside list jd ts file "+index)
+    this.jdAdditionService.deleteJob(index);
+    this.jobsList = this.jdAdditionService.getJobs();
+   
+  }
+  confirmDelete(){
+    confirm("The selected JD will be deleted");
+  }
+  
 }

@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl,FormBuilder,Validators } from '@angular/forms';
 import { JDAdditionService } from 'src/app/services/jdaddition.service';
 import { descriptions } from 'src/app/mock_data/descriptions';
-import { FormBuilder } from '@angular/forms';
-import { Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-jd',
   templateUrl: './add-jd.component.html',
@@ -11,41 +9,52 @@ import { Validators } from '@angular/forms';
 })
 export class AddJDComponent implements OnInit {
 
+  JDAdditionForm:FormGroup;
   successFlag:boolean = false;
-  JDAdditionForm = new FormGroup({
-    jdPosition: new FormControl('',Validators.required),
-    persons: new FormControl(''),
-    category:new FormControl(''),
-    location:new FormControl(''),
-    time:new FormControl(''),
-    experience:new FormControl(''),
-    skill:new FormControl(''),
-    description:new FormControl(''),
-    comment:new FormControl(''),
-  });
-
-  constructor(private jdAddService:JDAdditionService) { }
-
-  
+  jobDesc:descriptions;
+  constructor(private jdAddService:JDAdditionService, private formBuilder: FormBuilder) { }
+  pos:number;
   ngOnInit() {
     //const posname = this.JDAdditionForm.get('jdPosition')
+    this.JDAdditionForm = this.formBuilder.group({
+      jdPosition: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(50)]],
+      persons: [" ",Validators.required],
+      category: [" "],
+      location: [" ",[Validators.required]],
+      time: [" "],
+      experience: [" "],
+      skill: [" ",[Validators.required]],
+      description: [" ",[Validators.required]],
+      comment: [" "],
+    });
+
+    
+
   }
-  jobDesc:descriptions ={
-    position:"this.jPosition",
-    noPositions: 2,
-    category:"IT",
-    location:"Noida",
-    boardingTime: new Date,
-    experience:6,
-    skill:"Html,css,react",
-    JDDescription:"details of position",
-    comment:"NA"
-  };
+ 
   addJobDescs(){
-    console.warn(this.JDAdditionForm.value);
-    console.log("added jd is :"+this.JDAdditionForm.controls.jdPosition);
+    const formValue = this.JDAdditionForm.value
+    console.warn("jdPosition value"+formValue.jdPosition);
+    this.jobDesc ={
+      position:formValue.jdPosition,
+      noPositions: formValue.persons,
+      category:formValue.category,
+      location:formValue.location,
+      boardingTime: formValue.time,
+      experience:formValue.experience,
+      skill:formValue.skill,
+      JDDescription:formValue.description,
+      comment:formValue.comment
+    };
      this.jdAddService.addJobs(this.jobDesc);
-     
+     this.JDAdditionForm.reset()
      return this.successFlag = !this.successFlag;
   }
+  
+  positionOptio(){
+    for(let i = 0;i<10;i++){
+      this.pos = i;
+    }
+  }
+
 }
