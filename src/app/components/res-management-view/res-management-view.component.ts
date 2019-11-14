@@ -5,16 +5,6 @@ import {Sort, MatSort} from '@angular/material/sort';
 import {DataSource} from '@angular/cdk/collections';
 import {Observable} from 'rxjs';
 
-export interface Resource {
-  name: string;
-  position: string
-  doj: string;
-  location: string;
-  primeSkill: string;
-  mob: string;
-  ktPlan: string;
-  availablity: boolean;
-} 
 declare var $: any;
 @Component({
   selector: 'app-res-management-view',
@@ -24,25 +14,25 @@ declare var $: any;
 export class ResManagementViewComponent implements OnInit {
 
   dataSource = new ResourceDataSource(this._resourceService);
-
+  displayedColumns = ['name', 'position', 'doj', 'location', 'primeSkill', 'mob', 'ktPlan', 'availablity'] ;
   public resourceLists = [];
-  public resource;
+  public resource: any;
   sortedData: Sort;
   matDataSource = new MatTableDataSource<any>();
   constructor(private _resourceService: ResourceDetailListService) {
     this.resourceLists =this._resourceService.resourceListJson;   
+    this._resourceService.getResources().subscribe(result => {
+      if (!result)
+        return;
+      this.resource = result;
+      console.log("result.. "+this.resource);
+    });
+    console.log("resource subscribed ............ : "+ this.resourceLists);
    }
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) matSort: MatSort;
   ngOnInit() {
-  }
-  employeeData() {
-    this._resourceService.getResources().subscribe(
-      data =>{this.resource = data;},
-      err=> {console.error(err);},
-      () => {console.log("Data has loaded properly");}
-    );
   }
 
   /**
@@ -81,7 +71,8 @@ export class ResManagementViewComponent implements OnInit {
   }
 
   showModal():void {
-    $("#myModal").modal('show');
+    //window.$('#modalTarget').modal();
+    $("#modalTarget").modal('show');
   }
   showResource(index: number){
 

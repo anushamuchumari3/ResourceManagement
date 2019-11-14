@@ -1,53 +1,92 @@
 <div class="container-fluid">
-  <<h2 style="text-align: center;">Resource Detail</h2>
-  <div class="row">
-      <div class="col-md-1">
-      <label>First Name</label>
+    <div class="row header">
+      <div class="col-md-12  col-md-offset-5">
+        <div class="form-group">
+          <h3 class="heading"><u>Resource Profile</u></h3>
+        </div>
       </div>
-    <div class="col-md-4" style="text-align: right;">
-     
-      <textarea matInput placeholder="Textarea" maxlength="25" disabled=true>{{resource}}</textarea>
     </div>
-    <div class="col-md-4" style="text-align: left;">
-        <mat-form-field>
-            <textarea matInput placeholder="Textarea" maxlength="25" disabled=true>{{resource.name}}</textarea>
-          </mat-form-field>     
-    </div>
+    <form >
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>Name</label>
+              <textarea class="form-control">{{resource.name}}</textarea>
+          </div>       
+        </div>
+      </div>  
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>Position</label>
+              <textarea class="form-control">{{resource.position}}</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>DOJ</label>
+              <textarea class="form-control">{{resource.doj}}</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>Location</label>
+              <textarea class="form-control">{{resource.location}}</textarea>
+          </div>
+        </div>  
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>Primary Skill</label>
+              <textarea class="form-control">{{resource.primeSkill}}</textarea>
+          </div>
+        </div>  
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>Mob</label>
+              <textarea class="form-control" required>{{resource.mob}}</textarea>
+          </div>
+        </div>  
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>KT Plan</label>
+              <textarea class="form-control">{{resource.ktPlan}}</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>Availablity</label>
+              <textarea class="form-control">{{resource.availablity}}</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3"> 
+          <div class="form-group">
+              <label>Comment</label>
+              <textarea class="form-control">{{resource.comment}}</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 col-md-offset-5"> 
+          <div class="form-group">
+              <button onclick="document.getElementById('link').click()">Download CV</button>
+              <a id="link" href="../file.doc" download hidden></a>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-  <div class="row">
-    <div class="col-sm-6" >
-      <p>Last Name</p>
-    </div>
-    <div class="col-sm-6">
-        <mat-form-field>
-            <textarea matInput placeholder="Textarea" maxlength="25" disabled=true>{{name}}</textarea>
-          </mat-form-field>     
-    </div>
-  </div>
-  <div class="col">
-    <div class="row"><div class="col">Name</div><div class="col"></div></div>
-    <div class="row"><div class="col"></div><div class="col"></div></div>
-    <div class="row"><div class="col"></div><div class="col"></div></div>
-    <div class="row"><div class="col"></div><div class="col"></div></div>
-    <div class="row"><div class="col"></div><div class="col"></div></div>
-    <div class="row"><div class="col"></div><div class="col"></div></div>
-    <div class="row"><div class="col"></div><div class="col"></div></div>
-    <div class="row"><div class="col"></div><div class="col"></div></div>
-    <div class="row"><div class="col"></div><div class="col"></div></div>
-  </div>
-
-  <mat-form-field>
-    <input matInput placeholder="Input">
-  </mat-form-field>
-
-  <mat-form-field>
-    <textarea matInput placeholder="Textarea"></textarea>
-  </mat-form-field>
-
-  <mat-form-field>
-    <mat-select placeholder="Select">
-      <mat-option value="option">Option</mat-option>
-    </mat-select>
-  </mat-form-field>
-</div>
   

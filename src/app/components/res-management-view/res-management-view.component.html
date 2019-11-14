@@ -1,10 +1,19 @@
 <div class="container=fluid mat-elevation-z8">
-  <div class="example-filter" style="text-align: right">
-    <mat-form-field>
+  <div class="container" style="text-align: center;">
+
+    <!-- <mat-form-field>
       <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
-    </mat-form-field>
+    </mat-form-field> -->
+    
+    <div class="col-md-11">
+      <h3 class="panel panel-heading">List of Resources</h3>
+    </div>
+    <div class="col-md-1">
+      <button mat-flat-button color="primary" routerLink="/addResource" routerLinkActive="active">Add Resource</button>
+    </div>
   </div>
-  <h3 class=" panel  panel-heading" style="text-align: center;">List of Resources</h3>
+
+  <!-- 
 <mat-table #table matSort>
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Name </mat-header-cell>
@@ -57,7 +66,7 @@
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
   <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-</mat-table>  
+</mat-table>   -->
 
 
 
@@ -88,6 +97,7 @@
             <td >{{res.mob}}</td>
             <td >{{res.ktPlan }}</td>
             <td >{{res.availablity}}</td> 
+            <td>{{res.comment}}</td>
             <td style="text-align: center;">
                 <span><button mat-mini-fab color="grey"  data-toggle="modal" data-target="#modalTarget" (click)="showModal();">view</button></span>
                 <span><button mat-mini-fab color="primary" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span>
@@ -98,23 +108,115 @@
      </div> 
 </form>
 
-  <div class="mat-paginator-tab">
+  <!-- <div class="mat-paginator-tab">
     <mat-paginator
     [pageSize]="2"
     [pageSizeOptions]="[2, 4, 8, 10]">
     </mat-paginator>
-  </div>
+  </div> -->
 </div>
 
-<div class="modal fade" id="myModal" aria-hidden="true">
+<div class="modal fade" id="modalTarget" aria-hidden="true">
    <div class="modal-header">
-  <h4 class="modal-title">Modal Title</h4>
+  <!-- <h4 class="modal-title">Modal Title</h4> -->
   <button type="button" class="close" aria-label="Close"
     (click)="activeModal.dismiss('Cross click')">
   </button>
   </div>
   <div class="modal-body">
     <p>My modal content</p>
+    <div class="container-fluid">
+      <div class="row header">
+        <div class="col-md-12  ">
+          <div class="form-group">
+            <h3 class="heading">Resource Profile</h3>
+          </div>
+        </div>
+      </div>
+      <form>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>Name</label>
+                <textarea class="form-control">{{name}}</textarea>
+            </div>       
+          </div>
+        </div>  
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>Position</label>
+                <textarea class="form-control">{{position}}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>DOJ</label>
+                <textarea class="form-control">{{doj}}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>Location</label>
+                <textarea class="form-control">{{location}}</textarea>
+            </div>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>Primary Skill</label>
+                <textarea class="form-control">{{primeSkill}}</textarea>
+            </div>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>Mob</label>
+                <textarea class="form-control">{{mob}}</textarea>
+            </div>
+          </div>  
+        </div>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>KT Plan</label>
+                <textarea class="form-control">{{ktPlan}}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>Availablity</label>
+                <textarea class="form-control">{{availablity}}</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <label>Comment</label>
+                <textarea class="form-control">comment.....</textarea>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 "> 
+            <div class="form-group">
+                <button onclick="document.getElementById('link').click()">Download CV</button>
+                <a id="link" href="../file.doc" download hidden></a>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+
   </div>
   <div class="modal-footer">
     <button (click)="activeModal.dismiss('Close clicked')">

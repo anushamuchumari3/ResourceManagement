@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import {ResourceDetailListService} from '../../resource-detail-list.service'
-import { Resource } from '../res-management-view.component';
+import { Resource } from '../../Resource';
 
 @Component({
   selector: 'app-resource-detail',
@@ -11,22 +11,19 @@ import { Resource } from '../res-management-view.component';
 export class ResourceDetailComponent implements OnInit {
   id: number;
   resource: Resource;
-   /* Using Subscribe */
-   sub: any;
+
   constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
     private _resourceDetail:ResourceDetailListService) {
    }
 
   ngOnInit() {
-    this.sub=this._Activatedroute.paramMap.subscribe(params => { 
-       this.id = Number(params.get('id')); 
-       this.resource=this._resourceDetail.getResource(this.id);
-       console.log(this.resource+".................my param............: "+this.id);
-   });
+      let url = window.location.href;
+      console.log("url is "+url.substring(url.length - 1,url.length));
+      this.id = Number(url.substring(url.length - 1,url.length));
+      this.resource=this._resourceDetail.getResource(this.id);
+      console.log(this.resource+".................my param............: "+this.id);
+
   }
 
-  ngOnDestroy() {
-    this.sub.unsubscribe();
-  }
 }
