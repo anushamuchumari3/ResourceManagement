@@ -2,27 +2,30 @@
 <div class="container-fluid login_head">
   <div class="jumbotron">
    <div class="login_main">
+<form  [formGroup]="loginForm" (ngSubmit) = "login()">
       <div class="row">
         <div class="col-lg-6">
         <div class="form-group">
-          <label for="usr">Name:</label>
-          <input type="text" class="form-control" id="usr" placeholder="john.ally@soprasteria.com">
+          <label for="usr">Name*</label>
+          <input type="email" class="form-control" id="usr" placeholder="john.ally@soprasteria.com" formControlName="name">
         </div>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-6">
         <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="*******">
+          <label for="pwd">Password*</label>
+          <input type="password" class="form-control" id="pwd" placeholder="******" formControlName="password">
         </div>
         </div>
         
     </div>
     <div class="login_btn">
-      <button type="button" class="btn btn-primary" routerLink="/home">Login</button>&nbsp;&nbsp;
+      <!-- <button type="button" class="btn btn-primary" routerLink="/home">Login</button>&nbsp;&nbsp; -->
+      <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Login</button>&nbsp;&nbsp;
       <button type="button" class="btn btn-primary">Sign Up</button>
      </div>
+     </form>
   </div>
   </div>   
 </div>
