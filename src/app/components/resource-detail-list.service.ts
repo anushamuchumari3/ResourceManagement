@@ -28,10 +28,16 @@ export class ResourceDetailListService {
   }
 
   addResource( res : Resource) {
+    console.log("Added new resource.. : "+res);
     return this.resourceListJson.push(res);
   }
 
-  deleteResource(res : Resource){
-    return this.resourceListJson.pop();
+  deleteResource(index : number){
+    //return this.resourceListJson.pop();
+    if(index === 0 ){
+      return this.resourceListJson.splice(0,1);
+     }else{
+     return this.resourceListJson.splice(index,index);
+     }
   }
 }

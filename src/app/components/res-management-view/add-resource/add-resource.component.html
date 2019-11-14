@@ -1,108 +1,104 @@
-<!-- <div class="row successmsg" *ngIf="successFlag">
+<div class="row successmsg" *ngIf="successFlag">
         <div class="col-md-12 ">
           <h3 class=""> Successfully Resource added!! </h3>
          </div>
 </div>
-<form > 
-    <div class="container-fluid">
-        <div class="row header">
-          <div class="col-md-12  col-md-offset-5">
-            <div class="form-group">
-              <h3 class="heading"><u>Adding Profile</u></h3>
-            </div>
-          </div>
-        </div>
-        <form (ngSubmit)="onSubmit()" #heroForm="ngForm" >
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>Name</label>
-                  <input type="text" class="form-control" id="name"
-                  required
-                  [(ngModel)]="model.name" name="name"
-                  >
-              </div>       
-            </div>
-          </div>  
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>Position</label>
-                  <textarea class="form-control" name="position" ngModel></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>DOJ</label>
-                  <textarea class="form-control" name="doj" ngModel></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>Location</label>
-                  <textarea class="form-control" name="location" ngModel></textarea>
-              </div>
-            </div>  
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>Primary Skill</label>
-                  <textarea class="form-control" name="primeSkill" ngModel></textarea>
-              </div>
-            </div>  
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>Mob</label>
-                  <textarea class="form-control" name="mob" ngModel required></textarea>
-              </div>
-            </div>  
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>KT Plan</label>
-                  <textarea class="form-control" name="ktPlan" ngModel></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>Availablity</label>
-                  <textarea class="form-control" name="availablity" ngModel></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-3"> 
-              <div class="form-group">
-                  <label>Comment</label>
-                  <textarea class="form-control" name="comment" ngModel></textarea>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-6 col-md-offset-5"> 
-              <div class="form-group">
-                  <button onclick="document.getElementById('link').click()">Download CV</button>
-                  <a id="link" href="../file.doc" Upload Resume></a>
-                  <button type="submit"  class="btn btn-primary" [disabled]="!ResourceAdditionForm.valid">submit</button>
-                </div>
-              </div> 
-              
-          </div>
-        </form>
+
+<div class="container-fluid">
+  <div class="row header">
+    <div class="col-md-12  col-md-offset-5">
+      <div class="form-group">
+      <h3 class="heading"><u>Adding Profile</u></h3>
       </div>
+    </div>
+  </div>
+  <form (ngSubmit)="onSubmit()" #resForm="ngForm" >
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
+        </div>       
+      </div>
+    </div>  
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>Position</label>
+          <input type="text" class="form-control" id="position" required [(ngModel)]="position" name="position">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>DOJ</label>
+          <input type="text" class="form-control" id="doj" required [(ngModel)]="doj" name="doj">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>Location</label>
+          <input type="text" class="form-control" id="location" required [(ngModel)]="location" name="location">
+        </div>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>Primary Skill</label>
+          <input type="text" class="form-control" id="primeSkill" required [(ngModel)]="primeSkill" name="primeSkill">
+        </div>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>Mob</label>
+          <input type="text" class="form-control" id="mob" required [(ngModel)]="mob" name="mob">
+        </div>
+      </div>  
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>KT Plan</label>
+          <input type="text" class="form-control" id="ktPlan" required [(ngModel)]="ktPlan" name="ktPlan">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>Availablity</label>
+          <input type="text" class="form-control" id="availablity" required [(ngModel)]="availablity" name="availablity">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-3"> 
+        <div class="form-group">
+          <label>Comment</label>
+          <textarea class="form-control" id="comment" required [(ngModel)]="comment" name="comment"></textarea>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 col-md-offset-5"> 
+        <div class="form-group">
+          <button onclick="document.getElementById('link').click()">Upload CV</button>
+          <a id="link" href="../file.doc" Upload Resume></a>
+            <!-- <button type="submit"  class="btn btn-primary" [disabled]="!ResourceAdditionForm.valid">submit</button> -->
+        </div>
+      </div>   
+    </div> 
+    <button type="submit" class="btn btn-success"  [disabled]="!resForm.form.valid">Submit</button>
+    <button type="submit" class="btn btn-success" (click)="resForm.reset()">Reset</button>
+  </form> 
+</div>
       
-      
-</form>   -->
 <div class="container">
     <h1>Hero Form</h1>
     <form (ngSubmit)="onSubmit()" #heroForm="ngForm">
