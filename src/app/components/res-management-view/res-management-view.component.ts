@@ -30,9 +30,14 @@ export class ResManagementViewComponent implements OnInit {
     console.log("resource subscribed ............ : "+ this.resourceLists);
    }
 
+   public dummytabledata:any;
+  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) matSort: MatSort;
   ngOnInit() {
+
+     this.dummytabledata = this._resourceService.getResourcesdemo();
+   
   }
 
   /**
@@ -81,9 +86,13 @@ export class ResManagementViewComponent implements OnInit {
 
   }
   removeResource(index: number){
-
+    this._resourceService.deleteResource(index);
   }
   
+  
+
+
+
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {
@@ -104,4 +113,5 @@ export class ResourceDataSource extends DataSource<any> {
   }
 
   disconnect() {}
+
 }

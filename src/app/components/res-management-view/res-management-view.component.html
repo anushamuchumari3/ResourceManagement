@@ -79,6 +79,7 @@
           <th scope="col">Name</th>
           <th scope="col">Position</th>
           <th scope="col">Doj</th>
+          <th scope="col">Experience</th>
           <th scope="col">Location</th>
           <th scope="col">Primary Skill</th>
           <th scope="col">Mob</th>
@@ -89,10 +90,11 @@
         </tr>
       </thead>
       <tbody class="table table-striped">
-        <tr  *ngFor="let res of resourceLists; let i= index"  scope="row">
+        <tr  *ngFor="let res of dummytabledata; let i= index"  scope="row">
             <td >{{res.name}}</td>
             <td >{{res.position}}</td>
             <td >{{res.doj}}</td>
+            <td >{{res.exp}}</td>
             <td >{{res.location}}</td>
             <td >{{res.primeSkill}}</td>
             <td >{{res.mob}}</td>
@@ -100,8 +102,8 @@
             <td >{{res.availablity}}</td> 
             <td>{{res.comment}}</td>
             <td style="text-align: center;">
-                <span><button mat-mini-fab color="grey"  data-toggle="modal" data-target="#modalTarget" (click)="showModal();">view</button></span>
-                <span><button mat-mini-fab color="primary" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span>
+                <span><button mat-mini-fab color="grey" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">view</button></span>
+                <span><button mat-mini-fab color="primary" data-toggle="modal" data-target="#modalTarget" (click)="showModal();"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span>
                 <span><button mat-mini-fab color="warn" (click)="removeResource(i)"><mat-icon class="glyphicon glyphicon-trash"></mat-icon></button></span>
             </td> 
           </tbody>

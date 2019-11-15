@@ -10,23 +10,12 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class AddResourceComponent implements OnInit {
 
-  // public resource: Resource; 
-  successFlag:boolean = false;
-/*  ResourceAdditionForm = new FormGroup({
-    name: new FormControl(''),
-    position: new FormControl(''),
-    doj: new FormControl(''),
-    location: new FormControl(''),
-    primeSkill: new FormControl(''),
-    mob: new FormControl(''),
-    ktPlan: new FormControl(''),
-    availablity:new FormControl(''),
-    comment: new FormControl('')
-  });*/
-  
+successFlag:boolean = false;
+
 public name: string;
 public position: string
 public doj: string;
+public  exp: string;
 public location: string;
 public primeSkill: string;
 public mob: string;
@@ -39,37 +28,14 @@ constructor(private _resourceService: ResourceDetailListService) { }
   public id: number;
   // public name: string;
   public power: string;
-  //public alterEgo?: string
-//constructor() {  }
-ngOnInit() {
-// this.name='rama';
-  /*this.resource.name = this.name,
-  this.resource.position = this.position, 
-  this.resource.doj = this.doj,
-  this.resource.location = this.location,
-  this.resource.primeSkill = this.primeSkill,
-  this.resource.mob = this.mob,
-  this.resource.ktPlan = this.ktPlan,
-  this.resource.availablity = this.availablity,
-  this.resource.comment = this.comment*/
-}
-// model=new Object();
-/*
-newResource: Resource = {
-  name: this.name,
-  position: this.position, 
-  doj: this.doj,
-  location: this.location,
-  primeSkill: this.primeSkill,
-  mob: this.mob,
-  ktPlan: this.ktPlan,
-  availablity: this.availablity,
-  comment: this.comment 
-} */
+
+ngOnInit() {}
+
 onSubmit(){
   let newResource = new Resource(this.name,
     this.position, 
     this.doj,
+    this. exp,
     this.location,
     this.primeSkill,
     this.mob,

@@ -2,60 +2,76 @@ import {Resource} from './Resource';
 
 export const resourceList: Resource[] = [
   {
-    name: 'Tiger Nixon',
+    name: 'Unnikrishnan P',
     position: 'Team Lead',
-    doj: '2011/07/25',
+    doj: '17/10/2019',
+    exp: '9yrs',
     location: 'Bangalore',
-    primeSkill: 'Java',
+    primeSkill: 'CATIA VPM Tools',
     mob: '8501230456',
     ktPlan: 'In progress',
     availablity: 'Yes',
     comment: '...comment..'
   },
   {
-    name: 'Garrett Winters',
-    position: 'Senior Developer',
-    doj: '2010/05/08',
-    location: 'Chennai',
-    primeSkill: 'Java',
+    name: 'Lalitha Kanchamreddy',
+    position: 'Module Lead',
+    doj: '17/10/2019',
+    exp: '5yrs',
+    location: 'Bangalore',
+    primeSkill: 'Performance Testing',
     mob: '8501235556',
     ktPlan: 'Complete',
     availablity: 'No',
     comment: '...comment..'
   },
   {
-    name: 'Ashton Cox',
-    position: 'Developer',
-    doj: '2018/12/19',
-    location: 'Pune',
-    primeSkill: 'Java',
+    name: 'Sulbha Sinha',
+    position: 'Senior Software Engineer',
+    doj: '04/11/2019',
+    exp: '4yrs',
+    location: 'Bangalore',
+    primeSkill: 'Java full stack developer',
     mob: '8501230996',
     ktPlan: 'In progress',
     availablity: 'Yes',
     comment: '...comment..'
   },
   {
-    name: 'Cedric Kelly',
-    position: 'Software Engineer',
-    doj: '2016/07/15',
-    location: 'Noida',
-    primeSkill: 'PHP',
+    name: 'Debajyoti Mohanty',
+    position: 'Senior Software Engineer',
+    doj: '04/11/2019',
+    exp: '4yrs',
+    location: 'Bangalore',
+    primeSkill: 'Java full stack developer',
     mob: '8501230776',
     ktPlan: 'Complete',
     availablity: 'Yes',
     comment: '...comment..'
   },
   {
-    name: 'Airi Satou',
+    name: 'Sumanth Kota',
     position: 'Developer',
-    doj: '2013/02/21',
+    doj: '11/11/2019',
+    exp: '5yrs',
     location: 'Bangalore',
-    primeSkill: '.net',
+    primeSkill: 'SAB Basis admin, SAP Security',
+    mob: '8544230456',
+    ktPlan: 'In progress',
+    availablity: 'No',
+    comment: '...comment..'
+  },
+  {
+    name: 'Anusha Muchumari',
+    position: 'Developer',
+    doj: '11/11/2019',
+    exp: '5yrs',
+    location: 'Bangalore',
+    primeSkill: 'Java full stack developer',
     mob: '8544230456',
     ktPlan: 'In progress',
     availablity: 'No',
     comment: '...comment..'
   }
-  
 ];
   

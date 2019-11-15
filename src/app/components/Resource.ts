@@ -2,6 +2,7 @@ export class Resource {
     name: string;
     position: string;
     doj: string;
+    exp: string;
     location: string;
     primeSkill: string;
     mob: string;
@@ -12,6 +13,7 @@ export class Resource {
     constructor(name: string,
       position: string,
       doj: string,
+      exp: string,
       location: string,
       primeSkill: string,
       mob: string,
@@ -21,6 +23,7 @@ export class Resource {
       this.name = name,
       this.position = position, 
       this.doj = doj,
+      this. exp = exp,
       this.location = location,
       this.primeSkill = primeSkill,
       this.mob = mob,
