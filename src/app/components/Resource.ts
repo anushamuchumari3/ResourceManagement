@@ -9,6 +9,7 @@ export class Resource {
     ktPlan: string;
     availablity: string;
     comment: string;
+    profile: string;
 
     constructor(name: string,
       position: string,
@@ -19,7 +20,8 @@ export class Resource {
       mob: string,
       ktPlan: string,
       availablity: string,
-      comment: string){
+      comment: string,
+      profile: string){
       this.name = name,
       this.position = position, 
       this.doj = doj,
@@ -29,7 +31,8 @@ export class Resource {
       this.mob = mob,
       this.ktPlan = ktPlan,
       this.availablity = availablity,
-      this.comment = comment
+      this.comment = comment,
+      this.profile = profile
     }
 
   } 

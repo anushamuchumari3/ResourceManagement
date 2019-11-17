@@ -96,8 +96,10 @@
     <div class="row">
       <div class="col-md-6 col-md-offset-5"> 
         <div class="form-group">
-          <button onclick="document.getElementById('link').click()">Upload CV</button>
-          <a id="link" href="" Upload Resume></a>
+            <label>Upload profile</label>
+            <input type="file" id="profile" (change)="onFileChange($event);" #fileInput [(ngModel)]="profileUpload" name="profile">
+          <!-- <button onclick="document.getElementById('link').click()">Upload CV</button>
+          <a id="link" href="" Upload Resume></a> -->
         </div>
       </div>   
     </div> 

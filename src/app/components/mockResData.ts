@@ -11,7 +11,8 @@ export const resourceList: Resource[] = [
     mob: '8501230456',
     ktPlan: 'In progress',
     availablity: 'Yes',
-    comment: '...comment..'
+    comment: '...comment..',
+    profile: ''
   },
   {
     name: 'Lalitha Kanchamreddy',
@@ -23,7 +24,8 @@ export const resourceList: Resource[] = [
     mob: '8501235556',
     ktPlan: 'Complete',
     availablity: 'No',
-    comment: '...comment..'
+    comment: '...comment..',
+    profile: ''
   },
   {
     name: 'Sulbha Sinha',
@@ -35,7 +37,8 @@ export const resourceList: Resource[] = [
     mob: '8501230996',
     ktPlan: 'In progress',
     availablity: 'Yes',
-    comment: '...comment..'
+    comment: '...comment..',
+    profile: ''
   },
   {
     name: 'Debajyoti Mohanty',
@@ -47,7 +50,8 @@ export const resourceList: Resource[] = [
     mob: '8501230776',
     ktPlan: 'Complete',
     availablity: 'Yes',
-    comment: '...comment..'
+    comment: '...comment..',
+    profile: ''
   },
   {
     name: 'Sumanth Kota',
@@ -59,7 +63,8 @@ export const resourceList: Resource[] = [
     mob: '8544230456',
     ktPlan: 'In progress',
     availablity: 'No',
-    comment: '...comment..'
+    comment: '...comment..',
+    profile: ''
   },
   {
     name: 'Anusha Muchumari',
@@ -71,7 +76,8 @@ export const resourceList: Resource[] = [
     mob: '8544230456',
     ktPlan: 'In progress',
     availablity: 'No',
-    comment: '...comment..'
+    comment: '...comment..',
+    profile: ''
   }
 ];
   
