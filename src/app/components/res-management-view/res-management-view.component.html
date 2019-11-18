@@ -1,20 +1,18 @@
 <div class="container=fluid mat-elevation-z8">
-  <div class="container" style="text-align: center;">
-
-    <!-- <mat-form-field>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
-    </mat-form-field> -->
-    
+  <div class="container" style="text-align: center;">   
     <div class="col-md-11">
       <h3 class="panel panel-heading">List of Resources</h3>
     </div>
     <div class="col-md-1">
       <button mat-flat-button color="primary" routerLink="/addResource" routerLinkActive="active">Add Resource</button>
+      <!-- <mat-form-field>
+          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+        </mat-form-field> -->
     </div>
   </div>
 
-  <!-- 
-<mat-table #table matSort>
+  
+<!-- <mat-table #table matSort [dataSource]="dataSource">
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Name </mat-header-cell>
     <mat-cell *matCellDef="let resource"> {{resource.name}} </mat-cell>
@@ -27,6 +25,11 @@
 
   <ng-container matColumnDef="doj">
     <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Doj </mat-header-cell>
+    <mat-cell *matCellDef="let resource"> {{resource.exp}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="exp">
+    <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Experience </mat-header-cell>
     <mat-cell *matCellDef="let resource"> {{resource.doj}} </mat-cell>
   </ng-container>
 
@@ -55,17 +58,20 @@
     <mat-cell *matCellDef="let resource"> {{resource.availablity}} </mat-cell>
   </ng-container>
   
-  <ng-container>
-      <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Actions </mat-header-cell>
-      <mat-cell>
-          <span><button mat-mini-fab color="grey"  data-toggle="modal" data-target="#modalTarget" (click)="$('#myModal').modal(show);">view</button></span>
-          <span><button mat-mini-fab color="primary" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">edit</button></span>
-          <span><button mat-mini-fab color="warn" (click)="removeResource(i)">delete</button></span>
+
+  <ng-container matColumnDef="actions" >
+      <mat-header-cell *matHeaderCellDef class="columnTitle"> Actions </mat-header-cell>
+      <mat-cell *matCellDef="let resource" >
+          <span><button mat-mini-fab color="grey" routerLink="/resourceDetail/{{resource}}" routerLinkActive="active">view</button></span>
+          <span><button mat-mini-fab color="primary" data-toggle="modal" data-target="#modalTarget" (click)="showModal();"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span>
+          <span><button mat-mini-fab color="warn" (click)="removeResource(resource)"><mat-icon class="glyphicon glyphicon-trash"></mat-icon></button></span>
       </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns" 
+         (click)="onRowClicked(row)">
+  </mat-row>
 </mat-table>   -->
 
 
@@ -90,7 +96,7 @@
         </tr>
       </thead>
       <tbody class="table table-striped">
-        <tr  *ngFor="let res of dummytabledata; let i= index"  scope="row">
+        <tr  *ngFor="let res of resource; let i= index"  scope="row">
             <td >{{res.name}}</td>
             <td >{{res.position}}</td>
             <td >{{res.doj}}</td>
@@ -102,7 +108,7 @@
             <td >{{res.availablity}}</td> 
             <td>{{res.comment}}</td>
             <td style="text-align: center;">
-                <span><button mat-mini-fab color="grey" (click)="editResource(i)" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">view</button></span>
+                <span><button mat-mini-fab color="grey" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">view</button></span>
                 <span><button mat-mini-fab color="primary" data-toggle="modal" data-target="#modalTarget" (click)="showModal();"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span>
                 <span><button mat-mini-fab color="warn" (click)="removeResource(i)"><mat-icon class="glyphicon glyphicon-trash"></mat-icon></button></span>
             </td> 

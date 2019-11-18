@@ -27,9 +27,6 @@ export class ResourceDetailListService {
   data: any;
   getResource(id: number){
       this.data = this.resourceListJson[id];
-
-    // console.log("resource........... : "+this.resourceListJson[id]);
-    // console.log("resource  id  and data  :"+this.data.name);
     return this.data;
   }
 

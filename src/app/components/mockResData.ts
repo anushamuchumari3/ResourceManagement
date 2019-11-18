@@ -48,7 +48,7 @@ export const resourceList: Resource[] = [
     location: 'Bangalore',
     primeSkill: 'Java full stack developer',
     mob: '8501230776',
-    ktPlan: 'Complete',
+    ktPlan: 'In progress',
     availablity: 'Yes',
     comment: '...comment..',
     profile: ''

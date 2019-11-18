@@ -13,31 +13,24 @@ declare var $: any;
 })
 export class ResManagementViewComponent implements OnInit {
 
-  dataSource = new ResourceDataSource(this._resourceService);
-  displayedColumns = ['name', 'position', 'doj', 'location', 'primeSkill', 'mob', 'ktPlan', 'availablity'] ;
-  public resourceLists = [];
   public resource: any;
-  sortedData: Sort;
-  matDataSource = new MatTableDataSource<any>();
+  sortedData: MatSort;
+  dataSource = new MatTableDataSource(this.resource);
+  displayedColumns = ['name', 'position', 'doj', 'exp', 'location', 'primeSkill', 'mob', 'ktPlan', 'availablity', 'actions'];
+
   constructor(private _resourceService: ResourceDetailListService) {
-    this.resourceLists =this._resourceService.resourceListJson;   
     this._resourceService.getResources().subscribe(result => {
       if (!result)
         return;
       this.resource = result;
-      console.log("result.. "+this.resource);
-    });
-    console.log("resource subscribed ............ : "+ this.resourceLists);
+      this.dataSource.data = this.resource;
+    }); 
    }
 
-   public dummytabledata:any;
-  
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) matSort: MatSort;
   ngOnInit() {
-
-     this.dummytabledata = this._resourceService.getResourcesdemo();
-   
+     this.resource = this._resourceService.getResourcesdemo();    
   }
 
   /**
@@ -45,31 +38,34 @@ export class ResManagementViewComponent implements OnInit {
    * be able to query its view for the initialized paginator.
    */
   ngAfterViewInit() {
-    // this.matDataSource.sortData = this.matDataSource;
-    this.matDataSource.paginator = this.paginator;
+    this.dataSource.sort = this.matSort;
+    this.dataSource.paginator = this.paginator;
   }
   applyFilter(filterValue: string) {
     filterValue = filterValue.trim(); // Remove whitespace
     filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
-    this.matDataSource.filter = filterValue;
+    this.dataSource.filter = filterValue;
   }
    
-
-   sortData(sort: Sort) {
+   sortData(sort: MatSort) {
     const data = this.resource.slice();
     if (!sort.active || sort.direction === '') {
       this.sortedData = data;
       return;
     }
 
-    this.sortedData = data.sort((a, b) => {
+    this.sortedData = data.sort((a: any, b: any) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'name': return compare(a.name, b.name, isAsc);
-        /*case 'calories': return compare(a.calories, b.calories, isAsc);
-        case 'fat': return compare(a.fat, b.fat, isAsc);
-        case 'carbs': return compare(a.carbs, b.carbs, isAsc);
-        case 'protein': return compare(a.protein, b.protein, isAsc); */
+        case 'position': return compare(a.position, b.position, isAsc);
+        case 'doj': return compare(a.doj, b.doj, isAsc);
+        case 'exp': return compare(a.exp, b.exp, isAsc);
+        case 'location': return compare(a.location, b.location, isAsc); 
+        case 'primeSkill': return compare(a.primeSkill, b.primeSkill, isAsc);
+        case 'mob': return compare(a.mob, b.mob, isAsc);
+        case 'ktPlan': return compare(a.ktPlan, b.ktPlan, isAsc);
+        case 'availablity': return compare(a.availablity, b.availablity, isAsc);
         default: return 0;
       }
     });
@@ -89,29 +85,13 @@ export class ResManagementViewComponent implements OnInit {
     this._resourceService.deleteResource(index);
   }
   
-  
-
-
-
+  onRowClicked(row: any) {
+    console.log('Row clicked: ', row);
+  }
 }
 
 function compare(a: number | string, b: number | string, isAsc: boolean) {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }
 
-export class ResourceDataSource extends DataSource<any> {
-  
-  constructor(private _resourceService: ResourceDetailListService) {
-    super();
-    this._resourceService.getResources();
-  }
 
-  // Connect function called by the table to retrieve one stream containing the data to render. 
-  connect(): Observable<any[]> {
-       
-    return this._resourceService.getResources();
-  }
-
-  disconnect() {}
-
-}

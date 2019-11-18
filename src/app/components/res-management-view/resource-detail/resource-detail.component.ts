@@ -22,13 +22,13 @@ export class ResourceDetailComponent implements OnInit {
       console.log("url is "+url.substring(url.length - 1,url.length));
       this.id = Number(url.substring(url.length - 1,url.length));
       this.resource=this._resourceDetail.getResource(this.id);
-      console.log(this.resource+".................my param............: "+this.id);
+      // console.log(this.resource+".................my param............: "+this.id);
 
   }
-
+/*
   download() {
     window.open("C:\\AIRBUS-Banglore\\me\\Plans for Debajyoti.xlsx");
-    /*
+    
     this._resourceDetail.downloadFile().subscribe(response => {
 			//let blob:any = new Blob([response.blob()], { type: 'text/json; charset=utf-8' });
 			//const url= window.URL.createObjectURL(blob);
@@ -36,6 +36,6 @@ export class ResourceDetailComponent implements OnInit {
 			window.location.href = response.url;
 			//fileSaver.saveAs(blob, 'employees.json');
 		}), error => console.log('Error downloading the file'),
-                 () => console.info('File downloaded successfully');*/
-  }
+                 () => console.info('File downloaded successfully');
+  } */
 }
