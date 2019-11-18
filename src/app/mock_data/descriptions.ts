@@ -1,4 +1,5 @@
 export class descriptions {
+    id:number
     position:String;
         noPositions:number;
         category:String;

@@ -3,7 +3,8 @@ import { ListJDComponent } from '../components/list-jd/list-jd.component';
 import { descriptions } from './descriptions';
 
 export const JOBS: descriptions[] = [
-    {
+    { 
+        id:1,
         position:"full stack developer",
         noPositions: 2,
         category:"IT",
@@ -17,6 +18,7 @@ export const JOBS: descriptions[] = [
         requestAcknowledgment: false,
         requestRecieveTime:"18/11/2019 12:10:00"
       }, {
+        id:2,
         position:"SAP developer",
         noPositions: 2,
         category:"IT",
@@ -30,6 +32,7 @@ export const JOBS: descriptions[] = [
         requestAcknowledgment: true,
         requestRecieveTime:"18/11/2019 12:10:00"
       }, {
+        id:3,
         position:"Oracle developer",
         noPositions: 2,
         category:"DB",

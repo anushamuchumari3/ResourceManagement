@@ -40,6 +40,7 @@ export class AddJDComponent implements OnInit {
     const formValue = this.JDAdditionForm.value
     console.warn("jdPosition value"+formValue.jdPosition);
     this.jobDesc ={
+      id:4,
       position:formValue.jdPosition,
       noPositions: formValue.persons,
       category:formValue.category,
