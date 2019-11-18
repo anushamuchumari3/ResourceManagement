@@ -5,14 +5,14 @@
     </div>
     <div class="col-md-1">
       <button mat-flat-button color="primary" routerLink="/addResource" routerLinkActive="active">Add Resource</button>
-      <!-- <mat-form-field>
+      <mat-form-field>
           <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
-        </mat-form-field> -->
+        </mat-form-field>
     </div>
   </div>
 
   
-<!-- <mat-table #table matSort [dataSource]="dataSource">
+<mat-table #table matSort [dataSource]="dataSource">
   <ng-container matColumnDef="name">
     <mat-header-cell *matHeaderCellDef mat-sort-header class="columnTitle"> Name </mat-header-cell>
     <mat-cell *matCellDef="let resource"> {{resource.name}} </mat-cell>
@@ -62,7 +62,8 @@
   <ng-container matColumnDef="actions" >
       <mat-header-cell *matHeaderCellDef class="columnTitle"> Actions </mat-header-cell>
       <mat-cell *matCellDef="let resource" >
-          <span><button mat-mini-fab color="grey" routerLink="/resourceDetail/{{resource}}" routerLinkActive="active">view</button></span>
+          <span><button mat-mini-fab color="grey" (click)="showResource(resource);" >view</button></span>
+          <!-- <span><button mat-mini-fab color="grey" routerLink="/resourceDetail/{{resource}}" routerLinkActive="active">view</button></span> -->
           <span><button mat-mini-fab color="primary" data-toggle="modal" data-target="#modalTarget" (click)="showModal();"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span>
           <span><button mat-mini-fab color="warn" (click)="removeResource(resource)"><mat-icon class="glyphicon glyphicon-trash"></mat-icon></button></span>
       </mat-cell>
@@ -72,12 +73,12 @@
   <mat-row *matRowDef="let row; columns: displayedColumns" 
          (click)="onRowClicked(row)">
   </mat-row>
-</mat-table>   -->
+</mat-table>  
 
 
 
 
-<form>
+<!-- <form>
     <div class="container-fluid">
       <table class="table table-striped">
       <thead>
@@ -115,14 +116,14 @@
           </tbody>
       </table>
      </div> 
-</form>
+</form> -->
 
-  <!-- <div class="mat-paginator-tab">
+  <div class="mat-paginator-tab">
     <mat-paginator
     [pageSize]="2"
     [pageSizeOptions]="[2, 4, 8, 10]">
     </mat-paginator>
-  </div> -->
+  </div>
 </div>
 
 <div class="modal fade" id="modalTarget" aria-hidden="true">

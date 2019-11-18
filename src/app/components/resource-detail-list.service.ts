@@ -19,7 +19,7 @@ export class ResourceDetailListService {
     // console.log("resource.......getResources.... : "+this.resourceListJson);
     return of(this.resourceListJson);
   }
-  getResourcesdemo() {
+  getResourcesdemo(res: Resource) {
      console.log("resource.......getResources.... : "+this.resourceListJson);
     return this.resourceListJson;
   }

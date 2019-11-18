@@ -11,19 +11,25 @@ import { Resource } from '../../Resource';
 export class ResourceDetailComponent implements OnInit {
   id: number;
   resource: Resource;
-
+/* Using Subscribe */
+  sub: any;
+  resObject: any;
   constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
     private _resourceDetail:ResourceDetailListService) {
    }
 
   ngOnInit() {
-      let url = window.location.href;
+    /*  let url = window.location.href;
       console.log("url is "+url.substring(url.length - 1,url.length));
       this.id = Number(url.substring(url.length - 1,url.length));
-      this.resource=this._resourceDetail.getResource(this.id);
+      this.resource=this._resourceDetail.getResource(this.id);*/
       // console.log(this.resource+".................my param............: "+this.id);
-
+      
+      this.sub=this._Activatedroute.queryParams.subscribe(params => { 
+        this.resource = JSON.parse(params["data"]);
+    });
+    console.log(this.resource+".................my param............: "+this.resObject);
   }
 /*
   download() {

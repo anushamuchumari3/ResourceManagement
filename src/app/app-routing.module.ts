@@ -15,7 +15,7 @@ const routes: Routes = [
     component: ResManagementViewComponent
   },
   {
-    path: 'resourceDetail/:id',
+    path: 'resourceDetail',
     component: ResourceDetailComponent
   },
   {

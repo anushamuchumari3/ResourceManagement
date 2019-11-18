@@ -4,6 +4,8 @@ import {MatPaginator, MatTableDataSource} from '@angular/material';
 import {Sort, MatSort} from '@angular/material/sort';
 import {DataSource} from '@angular/cdk/collections';
 import {Observable} from 'rxjs';
+import { Resource } from '../Resource';
+import { Router } from '@angular/router';
 
 declare var $: any;
 @Component({
@@ -18,7 +20,7 @@ export class ResManagementViewComponent implements OnInit {
   dataSource = new MatTableDataSource(this.resource);
   displayedColumns = ['name', 'position', 'doj', 'exp', 'location', 'primeSkill', 'mob', 'ktPlan', 'availablity', 'actions'];
 
-  constructor(private _resourceService: ResourceDetailListService) {
+  constructor(private _resourceService: ResourceDetailListService, private router: Router) {
     this._resourceService.getResources().subscribe(result => {
       if (!result)
         return;
@@ -30,7 +32,7 @@ export class ResManagementViewComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) matSort: MatSort;
   ngOnInit() {
-     this.resource = this._resourceService.getResourcesdemo();    
+     this.resource = this._resourceService.resourceListJson;    
   }
 
   /**
@@ -75,14 +77,21 @@ export class ResManagementViewComponent implements OnInit {
     //window.$('#modalTarget').modal();
     $("#modalTarget").modal('show');
   }
-  showResource(index: number){
+
+  showResource(data: Resource){
+    this.router.navigate(["resourceDetail"],  {
+      queryParams: {
+          "data": JSON.stringify(data)
+      }
+    });
+  }
+
+  editResource(data: Resource){
 
   }
-  editResource(index: number){
-
-  }
-  removeResource(index: number){
-    this._resourceService.deleteResource(index);
+  removeResource(data: Resource){
+    //this._resourceService.deleteResource(index);
+    this._resourceService.remove(data);
   }
   
   onRowClicked(row: any) {
