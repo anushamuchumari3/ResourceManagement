@@ -1,0 +1,15 @@
+.icon_edit{
+    font-size:20px;
+    color:green;
+    cursor: pointer;
+}
+.icon_delete{
+    font-size:20px;
+    color:red;
+    cursor: pointer;
+}
+.icon_download{
+    font-size:20px;
+    color:orange;
+    cursor: pointer;
+}
