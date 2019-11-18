@@ -21,12 +21,16 @@ export class NavbarComponent implements OnInit {
         name:"JD List",
         link:"/listJD"
       },
+      // {
+      //   name:"Add Profile",
+      //   link:""
+      // },
+      // {
+      //   name:"Profile List",
+      //   link:""
+      // },
       {
-        name:"Add Profile",
-        link:""
-      },
-      {
-        name:"Profile List",
+        name:"Logout",
         link:""
       }
     ]

@@ -6,27 +6,63 @@
             <th>No. Positions</th>
             <th>Category</th>
             <th>Location</th>
+            <th>Request Recieve Time</th>
             <th>Boarding Time</th>
             <th>Experience (In Yrs)</th>
             <th>Skill</th>
+          
+            <th>SM</th>
+            
             <th>Description</th>
             <th>Comment</th>
             <th>Actions</th>
           </tr>
         </thead>
-        <tbody>
-          <tr *ngFor="let jdList of jobsList; let i = index">
+        <tbody *ngFor="let jdList of jobsList; let i = index">
+          <tr  *ngIf="jdList.requestAcknowledgment" style="background-color: lightgreen;" >
+           
             <td>{{jdList.position | uppercase}}</td>
             <td>{{jdList.noPositions}}</td>
             <td>{{jdList.category}}</td>
             <td>{{jdList.location}}</td>
+            <td>{{jdList.requestRecieveTime}}</td>
             <td>{{jdList.boardingTime |date}}</td>
             <td>{{jdList.experience}}</td>
             <td>{{jdList.skill}}</td>
+            
+            <td><input type="checkbox" disabled="true"  checked={{jdList.skillMatrix}}></td>
+          
             <td>{{jdList.description}}</td>
             <td>{{jdList.comment}}</td>
-            <td><i class="fa fa-pencil icon_edit" aria-hidden="true"  (click)="onSelect(jdList)"></i> &nbsp; <i class="fa fa-trash icon_delete" aria-hidden="true" (click)="deleteJds(i)"></i></td>
+            <td><i class="fa fa-pencil icon_edit" aria-hidden="true"  (click)="onSelect(jdList)"></i> &nbsp; <i class="fa fa-trash icon_delete" aria-hidden="true" (click)="deleteJds(i)"></i>&nbsp; 
+            <span *ngIf="jdList.skillMatrix">
+                <i class="fa fa-download icon_download" aria-hidden="true"></i>
+            </span>
+            </td>
+          
           </tr>
+          <tr  *ngIf="!jdList.requestAcknowledgment" style="background-color: lightcoral;" >
+           
+              <td>{{jdList.position | uppercase}}</td>
+              <td>{{jdList.noPositions}}</td>
+              <td>{{jdList.category}}</td>
+              <td>{{jdList.location}}</td>
+              <td>{{jdList.requestRecieveTime}}</td>
+              <td>{{jdList.boardingTime |date}}</td>
+              <td>{{jdList.experience}}</td>
+              <td>{{jdList.skill}}</td>
+              
+              <td ><input type="checkbox" disabled="true" ></td>
+            
+              <td>{{jdList.description}}</td>
+              <td>{{jdList.comment}}</td>
+              <td><i class="fa fa-pencil icon_edit" aria-hidden="true"  (click)="onSelect(jdList)"></i> &nbsp; <i class="fa fa-trash icon_delete" aria-hidden="true" (click)="deleteJds(i)"></i>&nbsp; 
+              <span *ngIf="jdList.skillMatrix">
+                  <i class="fa fa-download icon_download" aria-hidden="true"></i>
+              </span>
+              </td>
+            
+            </tr>
         </tbody>
       </table>
 </div>

@@ -1,6 +1,6 @@
  
  
- <div class="container-fluid bg">
+ <div class="container-fluid">
 
   <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
     <div class="row successmsg" *ngIf="successFlag">
@@ -64,7 +64,7 @@
           <div class="col-md-3 col-md-offset-1 ">
               <div class="form-group">
                 <label for="pwd">Boarding Time</label>
-                <input type="date" class="form-control" id="pwd" placeholder="3" formControlName="time">
+                <input type="date" class="form-control" id="pwd" placeholder="3" formControlName="time" min="2019-01-01" max="2020-12-31">
               </div>
           </div>
           <div class="col-md-3 col-md-offset-1">
@@ -77,9 +77,55 @@
                      </select>
                   </div>
           </div>
-
-
       </div>
+      <div class="row">
+          <div class="col-md-2">
+              <div class="form-group">
+                  <div class="row">
+                      <div class="col col-md-offset-1">
+                         <label>Skill Matrix Attached</label>
+                        </div>
+                   </div>
+                <div class="row">
+                    <div class="col col-md-offset-1">
+                      <input type="checkbox"  formControlName="skillMatrix">
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                      <div class="row">
+                        <div class="col">
+                        <label>Request Acknowledged</label>
+                      </div>
+                      </div>
+                      <div class="row">
+                        <div class="col">
+                          <input type="checkbox"  formControlName="requestAcknowledgment">
+                        </div>
+                      </div>
+                </div>
+              </div>
+      
+      
+
+          <div class="col-md-3">
+              <div class="form-group">
+                <label for="">Request Recieve Time</label>
+                <input type="datetime-local" class="form-control" id="requestRecieveTime" placeholder="01/01/2019"  min="2019-01-01" max="2020-12-31" formControlName="requestRecieveTime">
+              </div>
+          </div>
+
+          <div class="col-md-3 col-md-offset-1">
+              <div class="form-group">
+                  <label for="usr">Upload Attachment</label>
+                  <input type="file" class="form-control" id="usr" >
+                </div>
+          </div>
+        
+      </div>
+    
       <div class="row">
           <div class="col-md-6 "> 
               <div class="form-group">

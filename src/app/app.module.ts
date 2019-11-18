@@ -11,6 +11,9 @@ import { HomeComponent } from './components/home/home.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatNativeDateModule } from '@angular/material/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ModalDemoComponent } from './components/modal-demo/modal-demo.component';
+import * as bootstrap from "bootstrap";
+import * as $ from "jquery";
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     NavbarComponent,
     AddJDComponent,
     ListJDComponent,
-    HomeComponent
+    HomeComponent,
+    ModalDemoComponent
 
   ],
   imports: [

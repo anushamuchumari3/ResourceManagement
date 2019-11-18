@@ -8,4 +8,7 @@ export class descriptions {
         skill:String;
         JDDescription:String;
         comment:String;
+        skillMatrix:boolean;
+        requestAcknowledgment:boolean;
+        requestRecieveTime:String;
   }

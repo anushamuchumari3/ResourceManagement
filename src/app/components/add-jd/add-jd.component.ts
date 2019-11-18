@@ -26,6 +26,10 @@ export class AddJDComponent implements OnInit {
       skill: [" ",[Validators.required]],
       description: [" ",[Validators.required]],
       comment: [" "],
+      skillMatrix: [false,[Validators.required]],
+      requestAcknowledgment: [false,[Validators.required]],
+      requestRecieveTime:[" "],
+      uploadAttachment:[" "],
     });
 
     
@@ -44,7 +48,10 @@ export class AddJDComponent implements OnInit {
       experience:formValue.experience,
       skill:formValue.skill,
       JDDescription:formValue.description,
-      comment:formValue.comment
+      comment:formValue.comment,
+      skillMatrix:formValue.skillMatrix,
+      requestAcknowledgment:formValue.requestAcknowledgment,
+      requestRecieveTime:formValue.requestRecieveTime,
     };
      this.jdAddService.addJobs(this.jobDesc);
      this.JDAdditionForm.reset()
