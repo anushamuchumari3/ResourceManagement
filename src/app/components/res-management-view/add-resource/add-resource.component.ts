@@ -14,6 +14,7 @@ export class AddResourceComponent implements OnInit {
 public profileUpload: string = "";
 successFlag:boolean = false;
 
+public id: number;
 public name: string;
 public position: string
 public doj: string;
@@ -26,17 +27,16 @@ public availablity: string;
 public comment: string;
 public profile:  string;
 
-constructor(private _resourceService: ResourceDetailListService) { }
-
-  public id: number;
-  // public name: string;
-  public power: string;
-
+constructor(private _resourceService: ResourceDetailListService) { 
+  this.id = _resourceService.resourceListJson.length;
+}
 ngOnInit() {}
 
 onSubmit(){
   this.profile = this.profileUpload;
-  let newResource = new Resource(this.name,
+  let newResource = new Resource(
+    this.id+1,
+    this.name,
     this.position, 
     this.doj,
     this. exp,

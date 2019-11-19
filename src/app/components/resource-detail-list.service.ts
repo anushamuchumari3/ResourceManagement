@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import { of } from 'rxjs';
 import {Resource} from './Resource';
 import {resourceList} from './mockResData';
+import { element } from '@angular/core/src/render3';
 // import {HttpResponse} from '@angular/common/http';
 // import {Http, ResponseContentType} from '@angular/http';
 
@@ -12,21 +13,16 @@ import {resourceList} from './mockResData';
 export class ResourceDetailListService {
 
   resourceListJson : Resource[] = resourceList; 
-
+  data: Resource;
   constructor() { }
 
   getResources(): Observable<any[]> {
     // console.log("resource.......getResources.... : "+this.resourceListJson);
     return of(this.resourceListJson);
   }
-  getResourcesdemo(res: Resource) {
-     console.log("resource.......getResources.... : "+this.resourceListJson);
-    return this.resourceListJson;
-  }
 
-  data: any;
   getResource(id: number){
-      this.data = this.resourceListJson[id];
+    this.data = this.resourceListJson.find(element => element.id == id);
     return this.data;
   }
 
@@ -48,6 +44,11 @@ export class ResourceDetailListService {
      }
   }
 
+  remove(res: Resource){
+    const index = this.resourceListJson.findIndex(element => element === res);
+    console.log("remove index : "+ index);
+    this.deleteResource(index);
+  } 
   // downloadFile(): Observable<HttpResponse<Blob>>{		
 	// 	return this.http.get('http://localhost:8080/employees/download', { responseType: ResponseContentType.Blob });
   //  }

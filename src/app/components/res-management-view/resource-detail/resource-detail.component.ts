@@ -20,16 +20,20 @@ export class ResourceDetailComponent implements OnInit {
    }
 
   ngOnInit() {
+    this.sub=this._Activatedroute.queryParams.subscribe(params => { 
+      this.id = Number(params["id"]);
+    });
+    this.resource = this._resourceDetail.getResource(this.id);
     /*  let url = window.location.href;
       console.log("url is "+url.substring(url.length - 1,url.length));
       this.id = Number(url.substring(url.length - 1,url.length));
       this.resource=this._resourceDetail.getResource(this.id);*/
       // console.log(this.resource+".................my param............: "+this.id);
       
-      this.sub=this._Activatedroute.queryParams.subscribe(params => { 
-        this.resource = JSON.parse(params["data"]);
-    });
-    console.log(this.resource+".................my param............: "+this.resObject);
+    //   this.sub=this._Activatedroute.queryParams.subscribe(params => { 
+    //     this.resource = JSON.parse(params["data"]);
+    // });
+    // console.log(this.resource+".................my param............: "+this.resObject);
   }
 /*
   download() {

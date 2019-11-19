@@ -1,4 +1,5 @@
 export class Resource {
+    id: number;
     name: string;
     position: string;
     doj: string;
@@ -11,7 +12,9 @@ export class Resource {
     comment: string;
     profile: string;
 
-    constructor(name: string,
+    constructor(
+      id: number,
+      name: string,
       position: string,
       doj: string,
       exp: string,

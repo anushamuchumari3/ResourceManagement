@@ -81,7 +81,7 @@ export class ResManagementViewComponent implements OnInit {
   showResource(data: Resource){
     this.router.navigate(["resourceDetail"],  {
       queryParams: {
-          "data": JSON.stringify(data)
+          "id": data.id
       }
     });
   }
@@ -90,8 +90,7 @@ export class ResManagementViewComponent implements OnInit {
 
   }
   removeResource(data: Resource){
-    //this._resourceService.deleteResource(index);
-    this._resourceService.remove(data);
+   this._resourceService.remove(data);
   }
   
   onRowClicked(row: any) {

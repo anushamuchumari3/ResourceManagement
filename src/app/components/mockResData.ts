@@ -2,6 +2,7 @@ import {Resource} from './Resource';
 
 export const resourceList: Resource[] = [
   {
+    id: 1,
     name: 'Unnikrishnan P',
     position: 'Team Lead',
     doj: '17/10/2019',
@@ -15,6 +16,7 @@ export const resourceList: Resource[] = [
     profile: ''
   },
   {
+    id: 2,
     name: 'Lalitha Kanchamreddy',
     position: 'Module Lead',
     doj: '17/10/2019',
@@ -28,6 +30,7 @@ export const resourceList: Resource[] = [
     profile: ''
   },
   {
+    id: 3,
     name: 'Sulbha Sinha',
     position: 'Senior Software Engineer',
     doj: '04/11/2019',
@@ -41,6 +44,7 @@ export const resourceList: Resource[] = [
     profile: ''
   },
   {
+    id: 4,
     name: 'Debajyoti Mohanty',
     position: 'Senior Software Engineer',
     doj: '04/11/2019',
@@ -54,6 +58,7 @@ export const resourceList: Resource[] = [
     profile: ''
   },
   {
+    id: 5,
     name: 'Sumanth Kota',
     position: 'Developer',
     doj: '11/11/2019',
@@ -67,6 +72,7 @@ export const resourceList: Resource[] = [
     profile: ''
   },
   {
+    id: 6,
     name: 'Anusha Muchumari',
     position: 'Developer',
     doj: '11/11/2019',
