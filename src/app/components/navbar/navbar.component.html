@@ -3,9 +3,14 @@
     <div class="navbar-header">
       <a class="navbar-brand" href="#">AirBus</a>
     </div>
-    <ul class="nav navbar-nav"  *ngFor="let menu of menuList">
-      <li><a routerLink={{menu.link}}>{{menu.name}}</a></li>
+    <ul class="nav navbar-nav" >
+      <li  *ngFor="let menu of menuList"><a routerLink={{menu.link}}>{{menu.name}}</a></li>
     </ul>
+    <ul class="nav navbar-nav nav_logout">
+        <li ><a routerLink="/login">Logout</a></li>
+      </ul>
+    
+    
   </div>
 </nav>
 
