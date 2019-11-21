@@ -5,18 +5,17 @@
 <form  [formGroup]="loginForm" (ngSubmit) = "login()">
       <div class="row">
         <div class="col-lg-6">
-        <div class="form-group">
-          <label for="usr">Name*</label>
-          <input type="email" class="form-control" id="usr" placeholder="john.ally@soprasteria.com" formControlName="name">
-        </div>
+        <mat-form-field class="example-full-width">
+            <input type="email" matInput placeholder="User Name*"  formControlName="userName" >
+          </mat-form-field>
       </div>
     </div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="form-group">
-          <label for="pwd">Password*</label>
-          <input type="password" class="form-control" id="pwd" placeholder="******" formControlName="password">
-        </div>
+       
+        <mat-form-field class="example-full-width">
+            <input type="password" matInput placeholder="Password*"  formControlName="password" >
+          </mat-form-field>
         </div>
         
     </div>
