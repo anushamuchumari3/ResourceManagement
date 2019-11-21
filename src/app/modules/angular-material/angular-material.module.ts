@@ -5,7 +5,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';    
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatCheckboxModule} from '@angular/material/checkbox';
-
+import {MatTreeModule} from '@angular/material/tree';
 const Material = [
   MatTooltipModule,
   MatButtonModule,
@@ -18,7 +18,8 @@ const Material = [
   MatSortModule,
   MatInputModule,
   MatDatepickerModule,
-  MatCheckboxModule
+  MatCheckboxModule,
+  MatTreeModule
 
 ]
 @NgModule({
