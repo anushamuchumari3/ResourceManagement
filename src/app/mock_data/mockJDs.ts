@@ -1,7 +1,7 @@
 import { descriptions } from './descriptions';
 
 export const JOBS: descriptions[] = [
-    {
+    {   JdNumber:"ABS-22112019-JD1",
         position:"full stack developer",
         noPositions: 2,
         category:"IT",
@@ -16,6 +16,7 @@ export const JOBS: descriptions[] = [
         requestRecieveTime:"18/11/2019 12:10:00",
         acknowledgementDate:"21/11/2019"
       }, {
+        JdNumber:"ABS-22112019-JD2",
         position:"SAP developer",
         noPositions: 2,
         category:"IT",
@@ -30,6 +31,7 @@ export const JOBS: descriptions[] = [
         requestRecieveTime:"18/11/2019 12:10:00",
         acknowledgementDate:"21/11/2019"
       }, {
+        JdNumber:"ABS-22112019-JD3",
         position:"Oracle developer",
         noPositions: 2,
         category:"DB",

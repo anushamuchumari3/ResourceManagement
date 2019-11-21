@@ -29,6 +29,7 @@ export class AddJDComponent implements OnInit {
     console.log("this.categories "+this.categories[0].categoryName);
     //const posname = this.JDAdditionForm.get('jdPosition')
     this.JDAdditionForm = this.formBuilder.group({
+      JdNumber:[" ",Validators.required],
       jdPosition: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(50)]],
       persons: [" ",Validators.required],
       category: [" "],
@@ -53,6 +54,7 @@ export class AddJDComponent implements OnInit {
     const formValue = this.JDAdditionForm.value
     console.warn("jdPosition value"+formValue.jdPosition);
     this.jobDesc ={
+      JdNumber:formValue.JdNumber,
       position:formValue.jdPosition,
       noPositions: formValue.persons,
       category:formValue.category,
