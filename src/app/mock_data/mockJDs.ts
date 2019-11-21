@@ -1,5 +1,3 @@
-import { AddJDComponent } from "../components/add-jd/add-jd.component";
-import { ListJDComponent } from '../components/list-jd/list-jd.component';
 import { descriptions } from './descriptions';
 
 export const JOBS: descriptions[] = [
@@ -15,7 +13,8 @@ export const JOBS: descriptions[] = [
         comment:"NA",
         skillMatrix: false,
         requestAcknowledgment: false,
-        requestRecieveTime:"18/11/2019 12:10:00"
+        requestRecieveTime:"18/11/2019 12:10:00",
+        acknowledgementDate:"21/11/2019"
       }, {
         position:"SAP developer",
         noPositions: 2,
@@ -28,7 +27,8 @@ export const JOBS: descriptions[] = [
         comment:"NA",
         skillMatrix: true,
         requestAcknowledgment: true,
-        requestRecieveTime:"18/11/2019 12:10:00"
+        requestRecieveTime:"18/11/2019 12:10:00",
+        acknowledgementDate:"21/11/2019"
       }, {
         position:"Oracle developer",
         noPositions: 2,
@@ -41,6 +41,7 @@ export const JOBS: descriptions[] = [
         comment:"NA",
         skillMatrix: true,
         requestAcknowledgment: true,
-        requestRecieveTime:"18/11/2019 12:10:00"
+        requestRecieveTime:"18/11/2019 12:10:00",
+        acknowledgementDate:"21/11/2019"
       }
   ];

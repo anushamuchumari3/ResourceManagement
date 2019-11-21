@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,FormBuilder,Validators } from '@angular/forms';
 import { JDAdditionService } from 'src/app/services/jdaddition.service';
 import { descriptions } from 'src/app/mock_data/descriptions';
+import * as category from '../common_lists/category';
+import * as location from '../common_lists/location'
+import * as experience from '../common_lists/experience'
+
 @Component({
   selector: 'app-add-jd',
   templateUrl: './add-jd.component.html',
@@ -14,22 +18,31 @@ export class AddJDComponent implements OnInit {
   jobDesc:descriptions;
   constructor(private jdAddService:JDAdditionService, private formBuilder: FormBuilder) { }
   pos:number;
+  categories:any;
+  locations:any;
+  experiences:any;
+  positions:number[] = [1,2,3,4,5,6,7,8,9,10];
   ngOnInit() {
+    this.categories = category.CATEGORY;
+    this.locations = location.LOCATION;
+    this.experiences = experience.EXPERIENCE;
+    console.log("this.categories "+this.categories[0].categoryName);
     //const posname = this.JDAdditionForm.get('jdPosition')
     this.JDAdditionForm = this.formBuilder.group({
       jdPosition: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(50)]],
       persons: [" ",Validators.required],
       category: [" "],
       location: [" ",[Validators.required]],
-      time: [" "],
+      boardingDate: [" "],
       experience: [" "],
       skill: [" ",[Validators.required]],
       description: [" ",[Validators.required]],
       comment: [" "],
-      skillMatrix: [false,[Validators.required]],
-      requestAcknowledgment: [false,[Validators.required]],
+      skillMatrix: [false],
+      requestAcknowledgment: [false],
       requestRecieveTime:[" "],
       uploadAttachment:[" "],
+      acknowledgementDate:[" "],
     });
 
     
@@ -44,7 +57,7 @@ export class AddJDComponent implements OnInit {
       noPositions: formValue.persons,
       category:formValue.category,
       location:formValue.location,
-      boardingTime: formValue.time,
+      boardingTime: formValue.boardingDate,
       experience:formValue.experience,
       skill:formValue.skill,
       JDDescription:formValue.description,
@@ -52,6 +65,7 @@ export class AddJDComponent implements OnInit {
       skillMatrix:formValue.skillMatrix,
       requestAcknowledgment:formValue.requestAcknowledgment,
       requestRecieveTime:formValue.requestRecieveTime,
+      acknowledgementDate:formValue.acknowledgementDate,
     };
      this.jdAddService.addJobs(this.jobDesc);
      this.JDAdditionForm.reset()
@@ -62,6 +76,10 @@ export class AddJDComponent implements OnInit {
     for(let i = 0;i<10;i++){
       this.pos = i;
     }
+  }
+  addNewJD:boolean=false;
+  showNewJDForm(){
+    this.addNewJD = !this.addNewJD;
   }
 
 }

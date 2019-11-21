@@ -14,6 +14,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ModalDemoComponent } from './components/modal-demo/modal-demo.component';
 import * as bootstrap from "bootstrap";
 import * as $ from "jquery";
+import { CdkColumnDef } from '@angular/cdk/table';
+import {AngularMaterialModule} from './modules/angular-material/angular-material.module'
+import { CommonModule } from '@angular/common';
+ 
 
 @NgModule({
   declarations: [
@@ -33,9 +37,12 @@ import * as $ from "jquery";
     FormsModule,
     MatSliderModule ,
     MatNativeDateModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    FormsModule,
+    CommonModule,
+    AngularMaterialModule
   ],
-  providers: [],
+  providers: [CdkColumnDef],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
