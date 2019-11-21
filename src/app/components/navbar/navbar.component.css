@@ -1,3 +1,6 @@
 .nav_bg{
     background-color: darkslateblue;
 }
+.nav_logout{
+    float: right;
+}

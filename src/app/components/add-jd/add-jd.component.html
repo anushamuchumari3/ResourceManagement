@@ -1,8 +1,4 @@
- 
- 
  <div class="container-fluid">
-
-  <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
     <div class="row successmsg" *ngIf="successFlag">
         <div class="col-md-12 ">
           <h3 class=""> Successfully added Job Description!! </h3>
@@ -10,114 +6,114 @@
    </div>
 
       <div class="row header">
-          <div class="col-md-12  ">
+          <div class="col-md-12">
             <div class="form-group">
-              <h3 class="heading">Add new Job Description</h3>
+              <h3 class="heading">Add new Requirement</h3>
             </div>
           </div>
           </div>
     <form [formGroup]="JDAdditionForm" (ngSubmit) = "addJobDescs()">
       <div class="row">
+          <div class="col-md-3">
+              <mat-form-field class="example-full-width ">
+                <input matInput type="text"  placeholder="JD Number" >
+              </mat-form-field>
+            </div>
+
+          <div class="col-md-3">
+            <mat-form-field class="example-full-width ">
+              <input matInput type="text"  placeholder="Position*" formControlName="jdPosition">
+            </mat-form-field>
+          </div>
+          
+          <div class="col-md-3">
+           
+            <mat-form-field >
+                <mat-label>No. Positions*</mat-label>
+                <mat-select formControlName="persons">
+                      <mat-option *ngFor="let positions of positions" [value]="positions  ">
+                    {{positions}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+          </div>
+
+          <div class="col-md-3">
+                 <mat-form-field >
+                    <mat-label>Category</mat-label>
+                    <mat-select formControlName="category">
+                          <mat-option *ngFor="let category of categories" [value]="category.code  ">
+                        {{category.categoryName}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+          </div>
+         
+      </div>&nbsp;
+      <div class="row">
+          <div class="col-md-3">
+              <mat-form-field >
+                  <mat-label>Experience</mat-label>
+                  <mat-select formControlName="experience">
+                        <mat-option *ngFor="let experiences of experiences" [value]="experiences.code  ">
+                      {{experiences.experienceName}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+        </div>
+          <div class="col-md-3">
+                 <mat-form-field >
+                    <mat-label>Location*</mat-label>
+                    <mat-select formControlName="location">
+                          <mat-option *ngFor="let locations of locations" [value]="locations.code  ">
+                        {{locations.locationName}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+          </div>
+
+
           <div class="col-md-3 ">
-            <div class="form-group">
-              <label for="usr">Position*</label>
-              <input type="text" class="form-control"  placeholder="software engineer" formControlName="jdPosition">
-            </div>
-          </div>
-          
-          <div class="col-md-3 col-md-offset-1">
-            <div class="form-group">
-              <label for="positions">No. Positions</label>
-              <select class="form-control" id="positions" (click)="positionOptio()">
-                <option>{{pos}}</option>
-              </select>
-            </div>
-          </div>
+              <mat-form-field>
+                  <input matInput [matDatepicker]="boardingDate" placeholder="Boarding Date" formControlName="boardingDate" min="2019-01-01" max="2020-12-31">
+                  <mat-datepicker-toggle matSuffix [for]="boardingDate"></mat-datepicker-toggle>
+                  <mat-datepicker #boardingDate></mat-datepicker>
+              </mat-form-field>
 
-          <div class="col-md-3 col-md-offset-1">
-              <div class="form-group">
-                   <label for="category">Category</label>
-                    <select class="form-control" id="category" formControlName="category">
-                      <option>IT</option>
-                      <option>SAP</option>
-                      <option>Testing</option>
-                      <option>Engineering</option>
-                    </select>
-                 </div>
           </div>
-          
-      </div>
-      <div class="row">
-
-          <div class="col-md-3">
-              <div class="form-group">
-                   <label for="location">Location*</label>
-                    <select class="form-control" id="location" formControlName="location">
-                      <option>Noida Site1</option>
-                      <option>Noida Site3</option>
-                      <option>Banglore</option>
-                    </select>
-                 </div>
-          </div>
-
-
-          <div class="col-md-3 col-md-offset-1 ">
-              <div class="form-group">
-                <label for="pwd">Boarding Time</label>
-                <input type="date" class="form-control" id="pwd" placeholder="3" formControlName="time" min="2019-01-01" max="2020-12-31">
-              </div>
-          </div>
-          <div class="col-md-3 col-md-offset-1">
-                <div class="form-group">
-                    <label for="experience">Experience</label>
-                     <select class="form-control" id="experience" formControlName="experience">
-                       <option>1-2</option>
-                       <option>2-3</option>
-                       <option>3-4</option>
-                     </select>
-                  </div>
-          </div>
-      </div>
-      <div class="row">
           <div class="col-md-2">
-              <div class="form-group">
-                  <div class="row">
-                      <div class="col col-md-offset-1">
-                         <label>Skill Matrix Attached</label>
-                        </div>
-                   </div>
-                <div class="row">
-                    <div class="col col-md-offset-1">
-                      <input type="checkbox"  formControlName="skillMatrix">
-                    </div>
-                  </div>
-              </div>
-            </div>
-            <div class="col-md-2">
-                <div class="form-group">
-                      <div class="row">
-                        <div class="col">
-                        <label>Request Acknowledged</label>
-                      </div>
-                      </div>
-                      <div class="row">
-                        <div class="col">
-                          <input type="checkbox"  formControlName="requestAcknowledgment">
-                        </div>
-                      </div>
-                </div>
-              </div>
-      
-      
-
-          <div class="col-md-3">
-              <div class="form-group">
-                <label for="">Request Recieve Time</label>
-                <input type="datetime-local" class="form-control" id="requestRecieveTime" placeholder="01/01/2019"  min="2019-01-01" max="2020-12-31" formControlName="requestRecieveTime">
-              </div>
+              <mat-form-field>
+                  <input matInput [matDatepicker]="requestRecieveTime" placeholder="Request Recieve date" formControlName="requestRecieveTime" min="2019-01-01" max="2020-12-31">
+                  
+                  <mat-datepicker-toggle matSuffix [for]="requestRecieveTime"></mat-datepicker-toggle>
+                  <mat-datepicker #requestRecieveTime></mat-datepicker>
+                 
+              </mat-form-field>
           </div>
+      
+          
+         
+      </div>&nbsp;
+      <div class="row">
+          <div class="col-md-3 ">
+              <mat-checkbox formControlName="requestAcknowledgment" (click)="requestAcknowledge()">Request Acknowledged</mat-checkbox>
+            </div>
 
-          <div class="col-md-3 col-md-offset-1">
+            <div class="col-md-3 " *ngIf="requestAcknFlag">
+                <mat-form-field>
+                    <input matInput [matDatepicker]="acknowledgementDate" placeholder="Acknowledgement Date" formControlName="acknowledgementDate" min="2019-01-01" max="2020-12-31">
+                    <mat-datepicker-toggle matSuffix [for]="acknowledgementDate"></mat-datepicker-toggle>
+                    <mat-datepicker #acknowledgementDate></mat-datepicker>
+                </mat-form-field>
+  
+            </div>
+
+          <div class="col-md-2">
+              <mat-checkbox formControlName="skillMatrix" (click)="uploadSkillMatrix()">Skill Matrix Available</mat-checkbox>
+            </div>
+          <div class="col-md-2 col-md-offset-1" *ngIf="ifSkillMatrix">
               <div class="form-group">
                   <label for="usr">Upload Attachment</label>
                   <input type="file" class="form-control" id="usr" >
@@ -127,33 +123,28 @@
       </div>
     
       <div class="row">
-          <div class="col-md-6 "> 
-              <div class="form-group">
-                  <label for="comment">Skill*</label>
-                  <textarea class="form-control" rows="1" id="comment" formControlName="skill"></textarea>
-                </div>
+          <div class="col-md-5 "> 
+              <mat-form-field class="example-full-width">
+                  <textarea  matInput id="comment" placeholder="Skills*" formControlName="skill"></textarea>
+                </mat-form-field>
           </div>
         </div>
       <div class="row">
-          <div class="col-md-6 "> 
-              <div class="form-group">
-                  <label for="comment">JD Description*</label>
-                  <textarea class="form-control" rows="10" id="comment" formControlName="description"></textarea>
-                </div>
+          <div class="col-md-5 "> 
+              <mat-form-field class="example-full-width">
+                  <textarea matInput rows="3" id="comment" placeholder="JD Description*" formControlName="description"></textarea>
+                </mat-form-field>
           </div>
+       
+        <div class="col-md-5 col-md-offset-1"> 
+            <mat-form-field class="example-full-width">
+                <textarea matInput placeholder="Comments"  rows="3" formControlName="comment"></textarea>
+              </mat-form-field>
         </div>
-
-      <div class="row">
-        <div class="col-md-6 "> 
-            <div class="form-group">
-                <label for="comment">Comment:</label>
-                <textarea class="form-control" rows="2" id="comment" formControlName="comment"></textarea>
-              </div>
-        </div>
-      </div>
-      <button type="submit"  class="btn btn-primary add_btn" [disabled]="!JDAdditionForm.valid">Add JD</button>
+      </div>&nbsp;
+      <button mat-raised-button color="primary" class="add_btn" type="submit" [disabled]="!JDAdditionForm.valid" >Submit Requirement</button>
+     
     </form>
-  </div>
 
  
   

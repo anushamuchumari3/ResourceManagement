@@ -6,7 +6,7 @@
 }
 .heading{
     font-family: cursive;
-    color: blueviolet;
+    color: black;
     text-align: center;
 }
 .successmsg{
@@ -15,16 +15,22 @@
     font-size: 23px;
     font-family: cursive;
 }
-.example-form {
+  .add_btn{
+    margin: 37px -6px;
+  }
+  .example-form {
     min-width: 150px;
     max-width: 500px;
     width: 100%;
   }
   
   .example-full-width {
-    width: 100%;
+    width: 80%;
   }
-  .add_btn{
-    margin-bottom: 14%;
+  .mat-form-field-infix .input-fld{
+         font-size: 16px;
+        font-style: italic;
+        font-weight: bold;
   }
+
   

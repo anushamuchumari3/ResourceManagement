@@ -11,4 +11,5 @@ export class descriptions {
         skillMatrix:boolean;
         requestAcknowledgment:boolean;
         requestRecieveTime:String;
+        acknowledgementDate:String;
   }
