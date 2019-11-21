@@ -1,7 +1,61 @@
 import { Component, OnInit } from '@angular/core';
 import { descriptions } from 'src/app/mock_data/descriptions';
 import { JDAdditionService } from 'src/app/services/jdaddition.service';
+import {NestedTreeControl} from '@angular/cdk/tree';
+import {MatTreeNestedDataSource} from '@angular/material/tree';
 
+/**
+ * Food data with nested structure.
+ * Each node has a name and an optiona list of children.
+ */
+interface Requirement_JD {
+  name: string;
+  stage?: Requirement_JD[];
+}
+
+const TREE_DATA: Requirement_JD[] = [
+  {
+    name: 'AirBusStaffing-20112019-JD1',
+    stage: [
+      {name: 'JD addition Complete'},
+      {name: 'Profiles Sent & Acknowledged'},
+      {name: 'Selected  Profiles'},
+    ]
+  }, 
+  {
+    name: 'AirBusStaffing-20112019-JD2',
+    stage: [
+          {name: 'JD addition Complete'},
+          {name: 'Profiles Sent & Acknowledged'},
+        ]
+  },
+  {
+     name: 'AirBusStaffing-21112019-JD1',
+     stage: [
+              {name: 'JD addition Complete'},
+              {name: 'Profiles Sent & Acknowledged'},
+            ]
+  },
+  {
+     name: 'AirBusStaffing-21112019-JD2',
+     stage: [
+              {name: 'JD addition Complete'},
+              {name: 'Profiles Sent & Acknowledged'},
+            ]
+  },
+   {
+       name: 'AirBusStaffing-22112019-JD1',
+      stage: [
+                 {name: 'JD addition Complete'},
+                 {name: 'Profiles Sent & Acknowledged'},
+             ]
+     },
+    ]
+
+
+/**
+ * @title Tree with nested nodes
+ */
 @Component({
   selector: 'app-list-jd',
   templateUrl: './list-jd.component.html',
@@ -10,11 +64,14 @@ import { JDAdditionService } from 'src/app/services/jdaddition.service';
 export class ListJDComponent implements OnInit {
   jobsList:any;
   
+  treeControl = new NestedTreeControl<Requirement_JD>(node => node.stage);
+  dataSource = new MatTreeNestedDataSource<Requirement_JD>();
 
   constructor(private jdAdditionService:JDAdditionService) { 
     this.jobsList =  descriptions;
+    this.dataSource.data = TREE_DATA;
   }
-
+  hasChild = (_: number, node: Requirement_JD) => !!node.stage && node.stage.length > 0;
   ngOnInit() { 
     this. getJobDescs();
    }
