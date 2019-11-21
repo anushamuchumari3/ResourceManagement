@@ -67,6 +67,7 @@ export class AddJDComponent implements OnInit {
       requestRecieveTime:formValue.requestRecieveTime,
       acknowledgementDate:formValue.acknowledgementDate,
     };
+    
      this.jdAddService.addJobs(this.jobDesc);
      this.JDAdditionForm.reset()
      return this.successFlag = !this.successFlag;
@@ -81,5 +82,14 @@ export class AddJDComponent implements OnInit {
   showNewJDForm(){
     this.addNewJD = !this.addNewJD;
   }
-
+  requestAcknFlag:boolean = false;
+  requestAcknowledge(){
+    this.requestAcknFlag = !this.requestAcknFlag;
+    console.log("this.requestAcknFlag "+this.requestAcknFlag );
+  }
+  ifSkillMatrix:boolean = false;
+  uploadSkillMatrix(){
+    this.ifSkillMatrix = !this.ifSkillMatrix;
+    console.log("this.ifSkillMatrix "+this.ifSkillMatrix );
+  }
 }

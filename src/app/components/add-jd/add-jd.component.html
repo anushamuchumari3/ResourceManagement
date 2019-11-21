@@ -98,10 +98,10 @@
       </div>&nbsp;
       <div class="row">
           <div class="col-md-3 ">
-              <mat-checkbox formControlName="requestAcknowledgment">Request Acknowledged</mat-checkbox>
+              <mat-checkbox formControlName="requestAcknowledgment" (click)="requestAcknowledge()">Request Acknowledged</mat-checkbox>
             </div>
 
-            <div class="col-md-3 ">
+            <div class="col-md-3 " *ngIf="requestAcknFlag">
                 <mat-form-field>
                     <input matInput [matDatepicker]="acknowledgementDate" placeholder="Acknowledgement Date" formControlName="acknowledgementDate" min="2019-01-01" max="2020-12-31">
                     <mat-datepicker-toggle matSuffix [for]="acknowledgementDate"></mat-datepicker-toggle>
@@ -111,9 +111,9 @@
             </div>
 
           <div class="col-md-2">
-              <mat-checkbox formControlName="skillMatrix">Skill Matrix Available</mat-checkbox>
+              <mat-checkbox formControlName="skillMatrix" (click)="uploadSkillMatrix()">Skill Matrix Available</mat-checkbox>
             </div>
-          <div class="col-md-2 col-md-offset-1">
+          <div class="col-md-2 col-md-offset-1" *ngIf="ifSkillMatrix">
               <div class="form-group">
                   <label for="usr">Upload Attachment</label>
                   <input type="file" class="form-control" id="usr" >
