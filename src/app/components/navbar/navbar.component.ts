@@ -31,10 +31,6 @@ export class NavbarComponent implements OnInit {
         link:"/viewResource"
       },
       {
-        name:"Logout",
-        link:""
-      },
-      {
 
         name:"Reports",
         link:""

@@ -10,7 +10,7 @@ export const resourceList: Resource[] = [
     primeSkill: 'CATIA VPM Tools',
     mob: '8501230456',
     ktPlan: 'In progress',
-    availablity: 'Yes',
+    availablity: false,
     comment: '...comment..',
     profile: ''
   },
@@ -23,7 +23,7 @@ export const resourceList: Resource[] = [
     primeSkill: 'Performance Testing',
     mob: '8501235556',
     ktPlan: 'Complete',
-    availablity: 'No',
+    availablity: true,
     comment: '...comment..',
     profile: ''
   },
@@ -36,7 +36,7 @@ export const resourceList: Resource[] = [
     primeSkill: 'Java full stack developer',
     mob: '8501230996',
     ktPlan: 'In progress',
-    availablity: 'Yes',
+    availablity: false,
     comment: '...comment..',
     profile: ''
   },
@@ -49,7 +49,7 @@ export const resourceList: Resource[] = [
     primeSkill: 'Java full stack developer',
     mob: '8501230776',
     ktPlan: 'In progress',
-    availablity: 'Yes',
+    availablity: false,
     comment: '...comment..',
     profile: ''
   },
@@ -62,7 +62,7 @@ export const resourceList: Resource[] = [
     primeSkill: 'SAB Basis admin, SAP Security',
     mob: '8544230456',
     ktPlan: 'In progress',
-    availablity: 'No',
+    availablity: false,
     comment: '...comment..',
     profile: ''
   },
@@ -75,7 +75,7 @@ export const resourceList: Resource[] = [
     primeSkill: 'Java full stack developer',
     mob: '8544230456',
     ktPlan: 'In progress',
-    availablity: 'No',
+    availablity: false,
     comment: '...comment..',
     profile: ''
   }

@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef, ViewChild  } from '@angular/core';
 import {ResourceDetailListService} from '../../resource-detail-list.service'
 import { Resource } from '../../Resource';
 import { FormGroup, FormControl } from '@angular/forms';
-
+import * as location from '../../common_lists/location'
 @Component({
   selector: 'app-add-resource',
   templateUrl: './add-resource.component.html',
@@ -18,11 +18,11 @@ public name: string;
 public position: string
 public doj: string;
 public  exp: string;
-public location: string;
+public location: any;
 public primeSkill: string;
 public mob: string;
 public ktPlan: string;
-public availablity: string;
+public availablity: boolean;
 public comment: string;
 public profile:  string;
 
@@ -32,7 +32,9 @@ constructor(private _resourceService: ResourceDetailListService) { }
   // public name: string;
   public power: string;
 
-ngOnInit() {}
+ngOnInit() {
+ // this.location = location.LOCATION;
+}
 
 onSubmit(){
   this.profile = this.profileUpload;

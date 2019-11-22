@@ -1,115 +1,96 @@
-<div class="row successmsg" *ngIf="successFlag" style="text-align: center;">
+
+
+<div class="container-fluid">
+    <div class="row successmsg" *ngIf="successFlag" style="text-align: center;">
         <div class="col-md-12 ">
           <a routerLink="/viewResource" routerLinkActive="active"><h3 class=""> Successfully Resource added!! </h3></a>
          </div>
 </div>
-
-<div class="container-fluid">
   <div class="row header">
     <div class="col-md-12  col-md-offset-5">
       <div class="form-group">
-      <h3 class="heading"><u>Adding Profile</u></h3>
+      <h3 class="heading"><u>Add Profile</u></h3>
       </div>
     </div>
   </div>
   <form (ngSubmit)="onSubmit()" #resForm="ngForm" >
     <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" class="form-control" id="name" required [(ngModel)]="name" name="name">
-        </div>       
+      <div class="col-md-3"> 
+        <mat-form-field class="example-full-width ">
+            <input matInput type="text"  placeholder="Name" required [(ngModel)]="name" name="name">
+          </mat-form-field>
       </div>
-    </div>  
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>Position</label>
-          <input type="text" class="form-control" id="position" required [(ngModel)]="position" name="position">
-        </div>
+      <div class="col-md-3"> 
+        <mat-form-field class="example-full-width ">
+            <input matInput type="text"  placeholder="Job Title" required [(ngModel)]="position" name="position">
+          </mat-form-field>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>DOJ</label>
-          <input type="text" class="form-control" id="doj" required [(ngModel)]="doj" name="doj">
-        </div>
+      <div class="col-md-3 "> 
+        <mat-form-field class="example-full-width ">
+            <input matInput [matDatepicker]="DateofJoining" placeholder="Boarding Date" required [(ngModel)]="doj" name="doj" min="2019-01-01" max="2020-12-31">
+            <mat-datepicker-toggle matSuffix [for]="DateofJoining"></mat-datepicker-toggle>
+            <mat-datepicker #DateofJoining></mat-datepicker>
+          </mat-form-field>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>Experience</label>
-          <input type="text" class="form-control" id="exp" required [(ngModel)]="exp" name="exp">
-        </div>
+    
+      <div class="col-md-3"> 
+       
+        <mat-form-field class="example-full-width ">
+            <input matInput type="text"  placeholder="Experience" required [(ngModel)]="exp" name="exp">
+          </mat-form-field>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>Location</label>
-          <input type="text" class="form-control" id="location" required [(ngModel)]="location" name="location">
-        </div>
+      <div class="col-md-3"> 
+        <mat-form-field class="example-full-width ">
+            <input matInput type="text"  placeholder="Location" required [(ngModel)]="location" name="location">
+          </mat-form-field>
       </div>  
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>Primary Skill</label>
-          <input type="text" class="form-control" id="primeSkill" required [(ngModel)]="primeSkill" name="primeSkill">
-        </div>
+    
+      <div class="col-md-3"> 
+        <mat-form-field class="example-full-width ">
+            <input matInput type="text"  placeholder="Primary Skill" required [(ngModel)]="primeSkill" name="primeSkill">
+          </mat-form-field>
       </div>  
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>Mob</label>
-          <input type="text" class="form-control" id="mob" required [(ngModel)]="mob" name="mob">
-        </div>
+      <div class="col-md-3"> 
+        <mat-form-field class="example-full-width ">
+            <input matInput type="number" min="10" max="10"  placeholder="Mobile Number" required [(ngModel)]="mob" name="mob">
+          </mat-form-field>
       </div>  
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>KT Plan</label>
-          <input type="text" class="form-control" id="ktPlan" required [(ngModel)]="ktPlan" name="ktPlan">
-        </div>
+  
+      <div class="col-md-3 "> 
+        
+        <mat-form-field class="example-full-width ">
+            <input matInput type="text"  placeholder="KT Plan" required [(ngModel)]="ktPlan" name="ktPlan">
+          </mat-form-field>
       </div>
     </div>
     <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>Availablity</label>
-          <input type="text" class="form-control" id="availablity" required [(ngModel)]="availablity" name="availablity">
-        </div>
+      <div class="col-md-3"> 
+          <mat-checkbox required [(ngModel)]="availablity" name="availablity">Availablity</mat-checkbox>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3"> 
-        <div class="form-group">
-          <label>Comment</label>
-          <textarea class="form-control" id="comment" required [(ngModel)]="comment" name="comment"></textarea>
-        </div>
+      <div class="col-md-3"> 
+        <mat-form-field class="example-full-width ">
+            <textarea matInput   placeholder="comment" required [(ngModel)]="comment" name="comment"></textarea>
+          </mat-form-field>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 col-md-offset-5"> 
+  
+      <div class="col-md-3"> 
         <div class="form-group">
-            <label>Upload profile</label>
-            <input type="file" id="profile" (change)="onFileChange($event);" #fileInput [(ngModel)]="profileUpload" name="profile">
-          <!-- <button onclick="document.getElementById('link').click()">Upload CV</button>
-          <a id="link" href="" Upload Resume></a> -->
-        </div>
+            <label for="usr">Upload Attachment</label>
+            <input type="file" class="form-control" id="usr"  (change)="onFileChange($event);" #fileInput [(ngModel)]="profileUpload" name="profile" >
+          </div>
       </div>   
     </div> 
     <div class="row">
-      <div class="col-md-6 col-md-offset-5"> 
-        <div class="form-group">
-          <button type="submit" class="btn btn-success"  [disabled]="!resForm.form.valid">Submit</button>
-          <button type="submit" class="btn btn-success" (click)="resForm.reset()">Reset</button>
-        </div>
-      </div>   
+      <div class="col-md-1"> 
+       
+            <button mat-raised-button color="primary" class="btn_sub_res"  type="submit"[disabled]="!resForm.form.valid" >Submit </button>
+      </div>
+      <div class="col-md-1">
+            <button mat-raised-button color="primary" class="btn_sub_res" (click)="resForm.reset()" >Reset</button>
+          </div>
+     
     </div> 
   </form> 
 </div>

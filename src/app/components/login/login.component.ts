@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   login(){
     const formValue = this.loginForm.value;
     //alert("login username : "+formValue.name);
-    this.router.navigate(['/home']);
+    this.router.navigate(['/listJD']);
   }
  
 }

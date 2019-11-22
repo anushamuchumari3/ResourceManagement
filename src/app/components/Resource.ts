@@ -7,7 +7,7 @@ export class Resource {
     primeSkill: string;
     mob: string;
     ktPlan: string;
-    availablity: string;
+    availablity: boolean;
     comment: string;
     profile: string;
 
@@ -19,7 +19,7 @@ export class Resource {
       primeSkill: string,
       mob: string,
       ktPlan: string,
-      availablity: string,
+      availablity: boolean,
       comment: string,
       profile: string){
       this.name = name,
