@@ -13,6 +13,7 @@ import * as experience from '../common_lists/experience'
 })
 export class AddJDComponent implements OnInit {
 
+ 
   JDAdditionForm:FormGroup;
   successFlag:boolean = false;
   jobDesc:descriptions;
@@ -29,6 +30,7 @@ export class AddJDComponent implements OnInit {
     console.log("this.categories "+this.categories[0].categoryName);
     //const posname = this.JDAdditionForm.get('jdPosition')
     this.JDAdditionForm = this.formBuilder.group({
+      reqNumber:[" "],
       JdNumber:[" ",Validators.required],
       jdPosition: ['',[Validators.required,Validators.minLength(2),Validators.maxLength(50)]],
       persons: [" ",Validators.required],
@@ -49,11 +51,15 @@ export class AddJDComponent implements OnInit {
     
 
   }
- 
+  requirementNumber:String;
+  successMessge:string;
+  date:Date=new Date();
   addJobDescs(){
+   
     const formValue = this.JDAdditionForm.value
     console.warn("jdPosition value"+formValue.jdPosition);
     this.jobDesc ={
+      reqNumber:"AirBus_Staffing_"+this.date.getTime(),
       JdNumber:formValue.JdNumber,
       position:formValue.jdPosition,
       noPositions: formValue.persons,
@@ -72,7 +78,10 @@ export class AddJDComponent implements OnInit {
     
      this.jdAddService.addJobs(this.jobDesc);
      this.JDAdditionForm.reset()
-     return this.successFlag = !this.successFlag;
+   
+   console.log("this.jobDesc.reqNumber; "+this.jobDesc.reqNumber);
+   this.successMessge = "Successfully added !! Requirement Id is"+this.jobDesc.reqNumber;
+    return this.successFlag = !this.successFlag;
   }
   
   positionOptio(){

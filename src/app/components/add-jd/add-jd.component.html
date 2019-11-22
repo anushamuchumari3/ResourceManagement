@@ -1,7 +1,7 @@
  <div class="container-fluid">
     <div class="row successmsg" *ngIf="successFlag">
         <div class="col-md-12 ">
-          <h3 class=""> Successfully added Job Description!! </h3>
+          <h3 class=""> {{successMessge}} </h3>
          </div>
    </div>
 
@@ -101,7 +101,7 @@
               <mat-checkbox formControlName="requestAcknowledgment" (click)="requestAcknowledge()">Request Acknowledged</mat-checkbox>
             </div>
 
-            <div class="col-md-3 " *ngIf="requestAcknFlag">
+            <div class="col-md-3 " [hidden]="!requestAcknFlag">
                 <mat-form-field>
                     <input matInput [matDatepicker]="acknowledgementDate" placeholder="Acknowledgement Date" formControlName="acknowledgementDate" min="2019-01-01" max="2020-12-31">
                     <mat-datepicker-toggle matSuffix [for]="acknowledgementDate"></mat-datepicker-toggle>

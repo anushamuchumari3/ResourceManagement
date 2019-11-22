@@ -1,4 +1,5 @@
 export class descriptions {
+    reqNumber:string;
     JdNumber:String;
     position:String;
         noPositions:number;
@@ -11,6 +12,6 @@ export class descriptions {
         comment:String;
         skillMatrix:boolean;
         requestAcknowledgment:boolean;
-        requestRecieveTime:String;
+        requestRecieveTime:Date;
         acknowledgementDate:String;
   }

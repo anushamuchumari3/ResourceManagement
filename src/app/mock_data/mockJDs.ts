@@ -1,7 +1,8 @@
 import { descriptions } from './descriptions';
 
 export const JOBS: descriptions[] = [
-    {   JdNumber:"ABS-22112019-JD1",
+    {  reqNumber: "AirBus_Staffing_1574405228738",
+      JdNumber:"JD1",
         position:"full stack developer",
         noPositions: 2,
         category:"IT",
@@ -13,9 +14,10 @@ export const JOBS: descriptions[] = [
         comment:"NA",
         skillMatrix: false,
         requestAcknowledgment: false,
-        requestRecieveTime:"18/11/2019 12:10:00",
+        requestRecieveTime:new Date(11/11/2019),
         acknowledgementDate:"21/11/2019"
       }, {
+        reqNumber: "AirBus_Staffing_1574405228750",
         JdNumber:"ABS-22112019-JD2",
         position:"SAP developer",
         noPositions: 2,
@@ -28,9 +30,10 @@ export const JOBS: descriptions[] = [
         comment:"NA",
         skillMatrix: true,
         requestAcknowledgment: true,
-        requestRecieveTime:"18/11/2019 12:10:00",
+        requestRecieveTime:new Date(11/11/2019),
         acknowledgementDate:"21/11/2019"
       }, {
+        reqNumber: "AirBus_Staffing_1574405228758",
         JdNumber:"ABS-22112019-JD3",
         position:"Oracle developer",
         noPositions: 2,
@@ -43,7 +46,7 @@ export const JOBS: descriptions[] = [
         comment:"NA",
         skillMatrix: true,
         requestAcknowledgment: true,
-        requestRecieveTime:"18/11/2019 12:10:00",
+        requestRecieveTime:new Date(11/11/2019),
         acknowledgementDate:"21/11/2019"
       }
   ];
