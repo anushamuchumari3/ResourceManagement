@@ -11,7 +11,7 @@ import { Resource } from '../../Resource';
 export class ResourceDetailComponent implements OnInit {
   id: number;
   resource: Resource;
-
+  mode: string;
   constructor(private _Activatedroute:ActivatedRoute,
     private _router:Router,
     private _resourceDetail:ResourceDetailListService) {
@@ -24,6 +24,8 @@ export class ResourceDetailComponent implements OnInit {
       this.resource=this._resourceDetail.getResource(this.id);
       // console.log(this.resource+".................my param............: "+this.id);
 
+      this.mode = url.split('/')[4];
+      console.log("mode  : "+this.mode);
   }
 /*
   download() {

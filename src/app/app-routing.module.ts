@@ -32,7 +32,11 @@ const routes: Routes = [
   component: ResManagementViewComponent
 },
 {
-  path: 'resourceDetail/:id',
+  path: 'resourceDetail/view/:id',
+  component: ResourceDetailComponent
+},
+{
+  path: 'resourceDetail/edit/:id',
   component: ResourceDetailComponent
 },
 {

@@ -102,9 +102,13 @@
             <td >{{res.availablity}}</td> 
             <td>{{res.comment}}</td>
             <td style="text-align: center;">
-                <span><button mat-mini-fab color="grey" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">view</button></span>
-                <span><button mat-mini-fab color="primary" data-toggle="modal" data-target="#modalTarget" (click)="showModal();"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span>
-                <span><button mat-mini-fab color="warn" (click)="removeResource(i)"><mat-icon class="glyphicon glyphicon-trash"></mat-icon></button></span>
+                <span routerLink="/resourceDetail/view/{{i}}" routerLinkActive="active"><i class="fa fa-eye fa-lg" aria-hidden="true" style="color: #337ab7;padding-right: 15px;" ></i></span>
+                <!-- <span><button mat-mini-fab color="grey" routerLink="/resourceDetail/{{i}}" routerLinkActive="active">view</button></span> -->
+                <span routerLink="/resourceDetail/edit/{{i}}" routerLinkActive="active"><i class="fa fa-pencil fa-lg" aria-hidden="true" style="color: #337ab7;padding-right: 15px;"></i></span>
+                <!-- <span><button mat-mini-fab color="primary" data-toggle="modal" data-target="#modalTarget" (click)="showModal();"><mat-icon class="glyphicon glyphicon-pencil"></mat-icon></button></span> -->
+                <span (click)="removeResource(i)"><i class="fa fa-trash fa-lg" aria-hidden="true" style="color: #ac2925;padding-right: 15px;"></i></span>
+
+                <!-- <span><button mat-mini-fab color="warn" (click)="removeResource(i)"><mat-icon class="glyphicon glyphicon-trash"></mat-icon></button></span> -->
             </td> 
           </tbody>
       </table>

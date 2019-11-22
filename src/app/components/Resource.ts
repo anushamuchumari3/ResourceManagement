@@ -10,6 +10,7 @@ export class Resource {
     availablity: boolean;
     comment: string;
     profile: string;
+    matchPercentage: number;
 
     constructor(name: string,
       position: string,

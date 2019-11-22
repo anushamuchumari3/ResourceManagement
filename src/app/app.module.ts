@@ -22,7 +22,6 @@ import * as $ from "jquery";
 import { CdkColumnDef } from '@angular/cdk/table';
 import {AngularMaterialModule} from './modules/angular-material/angular-material.module'
 import { CommonModule } from '@angular/common';
-import { TreeDemoComponent } from './components/tree-demo/tree-demo.component';
  
 
 

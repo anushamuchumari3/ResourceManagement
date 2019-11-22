@@ -12,7 +12,8 @@ export const resourceList: Resource[] = [
     ktPlan: 'In progress',
     availablity: false,
     comment: '...comment..',
-    profile: ''
+    profile: '',
+    matchPercentage:0
   },
   {
     name: 'Lalitha Kanchamreddy',
@@ -25,7 +26,8 @@ export const resourceList: Resource[] = [
     ktPlan: 'Complete',
     availablity: true,
     comment: '...comment..',
-    profile: ''
+    profile: '',
+    matchPercentage:0
   },
   {
     name: 'Sulbha Sinha',
@@ -38,7 +40,8 @@ export const resourceList: Resource[] = [
     ktPlan: 'In progress',
     availablity: false,
     comment: '...comment..',
-    profile: ''
+    profile: '',
+    matchPercentage:0
   },
   {
     name: 'Debajyoti Mohanty',
@@ -46,12 +49,13 @@ export const resourceList: Resource[] = [
     doj: '04/11/2019',
     exp: '4yrs',
     location: 'Bangalore',
-    primeSkill: 'Java full stack developer',
+    primeSkill: 'java,angular,angularjs,bootstrap,rest api,Java full stack developer',
     mob: '8501230776',
     ktPlan: 'In progress',
     availablity: false,
     comment: '...comment..',
-    profile: ''
+    profile: '',
+    matchPercentage:0
   },
   {
     name: 'Sumanth Kota',
@@ -64,7 +68,8 @@ export const resourceList: Resource[] = [
     ktPlan: 'In progress',
     availablity: false,
     comment: '...comment..',
-    profile: ''
+    profile: '',
+    matchPercentage:0
   },
   {
     name: 'Anusha Muchumari',
@@ -72,12 +77,13 @@ export const resourceList: Resource[] = [
     doj: '11/11/2019',
     exp: '5yrs',
     location: 'Bangalore',
-    primeSkill: 'Java full stack developer',
+    primeSkill: 'java,angular,angularjs,html,css,bootstrap,rest api,soap api,mysql',
     mob: '8544230456',
     ktPlan: 'In progress',
     availablity: false,
     comment: '...comment..',
-    profile: ''
+    profile: '',
+    matchPercentage:0
   }
 ];
   

@@ -59,7 +59,7 @@ onSubmit(){
   return this.successFlag = !this.successFlag;
  }
 
- onFileChange(event) {
+ onFileChange(event: any) {
   //this.uploadStatus = 0;
   if (event.target.files.length > 0) {
     let file = event.target.files[0].name;

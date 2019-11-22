@@ -39,9 +39,9 @@
             <td><input type="checkbox" disabled="true"  checked={{jdList.skillMatrix}}></td>
             <td>{{jdList.description}}</td>
             <td>{{jdList.comment}}</td>
-            <td><i class="fa fa-pencil icon_edit" aria-hidden="true"  (click)="onSelect(jdList)"></i> &nbsp; <i class="fa fa-trash icon_delete" aria-hidden="true" (click)="deleteJds(i)"></i>&nbsp; 
+            <td><i class="fa fa-pencil fa-lg" aria-hidden="true"  (click)="onSelect(jdList)" style="color: #337ab7;"></i> &nbsp; <i class="fa fa-trash fa-lg" aria-hidden="true" (click)="deleteJds(i)" style="color: #ac2925;"></i>&nbsp; 
             <span *ngIf="jdList.skillMatrix">
-                <i class="fa fa-download icon_download" aria-hidden="true"></i>
+                <i class="fa fa-download fa-lg" aria-hidden="true" style="color: #337ab7;"></i>
             </span>
             </td>
           
@@ -62,9 +62,9 @@
             
               <td>{{jdList.description}}</td>
               <td>{{jdList.comment}}</td>
-              <td><i class="fa fa-pencil icon_edit" aria-hidden="true"  (click)="onSelect(jdList)"></i> &nbsp; <i class="fa fa-trash icon_delete" aria-hidden="true" (click)="deleteJds(i)"></i>&nbsp; 
+              <td><i class="fa fa-pencil fa-lg" aria-hidden="true"  (click)="onSelect(jdList)" style="color: #337ab7;"></i> &nbsp; <i class="fa fa-trash fa-lg" aria-hidden="true" (click)="deleteJds(i)" style="color: #ac2925;"></i>&nbsp; 
               <span *ngIf="jdList.skillMatrix">
-                  <i class="fa fa-download icon_download" aria-hidden="true"></i>
+                  <i class="fa fa-download fa-lg" aria-hidden="true" style="color: #337ab7;"></i>
               </span>
               </td>
             

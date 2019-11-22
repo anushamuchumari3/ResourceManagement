@@ -142,9 +142,52 @@
               </mat-form-field>
         </div>
       </div>&nbsp;
-      <button mat-raised-button color="primary" class="add_btn" type="submit" [disabled]="!JDAdditionForm.valid" >Submit Requirement</button>
-     
+      <div>
+
+        <button type="submit" class="btn btn-primary" [disabled]="!JDAdditionForm.valid" >Submit Requirement</button>
+        <button type="button" class="btn btn-primary" *ngIf="successFlag" (click)="matchProfile();" style="margin-left: 15px;">Match Profiles</button>
+        <input type="reset" class="btn btn-danger" (click)="onResetForm()" style="margin-left: 25px;">
+      </div>
     </form>
 
- 
-  
+    <div *ngIf="successFlag">
+      <hr>
+      <div>
+        <h3>{{profileMatchFlag}}</h3>
+      </div>
+      <hr>
+    </div>
+    <div class="container-fluid" *ngIf="matchedProfiles.length>0">
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Position</th>
+          <th scope="col">Experience</th>
+          <th scope="col">Location</th>
+          <th scope="col">Primary Skill</th>
+          <th scope="col">KT Plan</th>
+          <th scope="col">Availablity</th>
+          <th scope="col">Comment</th>
+          <th scope="col">Matched Percentage</th>
+          <th scope="col" style="text-align: center;">Action</th>
+        </tr>
+      </thead>
+      <tbody class="table table-striped">
+        <tr  *ngFor="let res of matchedProfiles; let i= index"  scope="row">
+            <td >{{res.name}}</td>
+            <td >{{res.position}}</td>
+            <td >{{res.exp}}</td>
+            <td >{{res.location}}</td>
+            <td >{{res.primeSkill}}</td>
+            <td >{{res.ktPlan }}</td>
+            <td >{{res.availablity}}</td> 
+            <td>{{res.comment}}</td>
+            <td>{{res.matchPercentage}} %</td>
+            <td style="text-align: center;">
+                <span><i class="fa fa-download fa-lg" aria-hidden="true" style="color: #337ab7;"></i></span>
+            </td> 
+          </tbody>
+      </table>
+     </div> 
+  </div>
