@@ -2,6 +2,7 @@
     <table class="table table-striped">
         <thead>
           <tr>
+              <th>Requirement Number</th>
             <th>JD Number</th>
             <th>Position</th>
             <th>No. Positions</th>
@@ -19,12 +20,13 @@
         </thead>
         <tbody *ngFor="let jdList of jobsList; let i = index">
           <tr  *ngIf="jdList.requestAcknowledgment" style="background-color: lightgreen;" >
+              <td>{{jdList.reqNumber}}</td>
             <td>{{jdList.JdNumber  | uppercase}}</td>
             <td>{{jdList.position | uppercase}}</td>
             <td>{{jdList.noPositions}}</td>
             <td>{{jdList.category}}</td>
             <td>{{jdList.location}}</td>
-            <td>{{jdList.requestRecieveTime }}</td>
+            <td>{{jdList.requestRecieveTime |date}}</td>
             <td>{{jdList.boardingTime |date}}</td>
             <td>{{jdList.experience}}</td>
             <td>{{jdList.skill}}</td>
@@ -39,12 +41,13 @@
           
           </tr>
           <tr  *ngIf="!jdList.requestAcknowledgment" style="background-color: lightcoral;" >
+            <td>{{jdList.reqNumber}}</td>
               <td>{{jdList.JdNumber  | uppercase}}</td>
               <td>{{jdList.position | uppercase}}</td>
               <td>{{jdList.noPositions}}</td>
               <td>{{jdList.category}}</td>
               <td>{{jdList.location}}</td>
-              <td>{{jdList.requestRecieveTime}}</td>
+              <td>{{jdList.requestRecieveTime |date}}</td>
               <td>{{jdList.boardingTime |date}}</td>
               <td>{{jdList.experience}}</td>
               <td>{{jdList.skill}}</td>

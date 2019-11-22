@@ -14,11 +14,11 @@ export class NavbarComponent implements OnInit {
     this.menuList = [
 
       {
-        name:"Add JD",
+        name:"Add Requirement",
         link:"/addJD"
       },
       {
-        name:"JD List",
+        name:"View Requirements",
         link:"/listJD"
       },
       {
@@ -32,6 +32,11 @@ export class NavbarComponent implements OnInit {
       },
       {
         name:"Logout",
+        link:""
+      },
+      {
+
+        name:"Reports",
         link:""
 
       }
