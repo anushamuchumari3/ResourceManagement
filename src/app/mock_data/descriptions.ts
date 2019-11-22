@@ -1,4 +1,5 @@
 export class descriptions {
+    JdNumber:String;
     position:String;
         noPositions:number;
         category:String;

@@ -13,29 +13,7 @@
     color:orange;
     cursor: pointer;
 }
-.example-tree-invisible {
-    display: none;
-  }
-  
-  .example-tree ul{
-    font-weight: bold !important;
-    font-size: 19px !important;
-  }
-  .example-tree li {
-    margin-top: 0;
-    margin-bottom: 0;
-    list-style-type: none;
-  }
-  .main_tree_node{
-    font-weight: bold !important;
-    font-size: 19px !important;
-  }
-  .mat-tree-node{
-      font-family: cursive;
-    font-size: 17px !important;
-    cursor: pointer;
-    background-color: lightgreen;
-  }
+
   .heading{
     text-align: center;
     font-family: cursive;
